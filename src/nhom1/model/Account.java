@@ -4,6 +4,7 @@ public class Account {
 	private int id;
 	private String username;
 	private String password;
+	private String fullName;
 	private int role;
 	public Account() {
 		super();
@@ -20,6 +21,22 @@ public class Account {
 		this.username = username;
 		this.password = password;
 		this.role = role;
+	}
+	
+	public Account(int id, String username, String password, String fullName, int role) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.fullName = fullName;
+		this.role = role;
+	}
+	
+	public String getFullName() {
+		return fullName;
+	}
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 	public int getId() {
 		return id;

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,17 +11,15 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="form/css/csshomepage.css">
-  <link rel="stylesheet" href="form/fontawesome-free-5.15.1-web/css/all.min.css">
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-  <script src="form/jquery.min.js"></script>
-  <script type="text/javascript" src="form/jquery.js"></script>
+  <!--  -->
+  <link rel="stylesheet" href="public/css/csshomepage.css">
+  <link rel="stylesheet" href="public/fontawesome-free-5.15.1-web/css/all.min.css">
+  <!--  -->
+  <script src="public/js/jquery.min.js"></script>
+  <script src="public/js/jquery.js"></script>
   <!---->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-  <!-- Bootstrap CSS -->
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="form/css/bootstrap.min.css">
+  <link rel="stylesheet" href="public/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -56,18 +56,51 @@
           </li>
         </ul>
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item  mr-4">
-            <div class="dropdown show">
-              <a class="btn btn-outline-dark dropdown-toggle"  role="button" id="dropdownMenuLink"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-user mr-2"></i>Đăng nhập
-              </a>
-              <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item btn" href="form/log-in.jsp"><i class="fa fa-sign-in-alt mr-1"></i>Đăng nhập</a>
-                <a class="dropdown-item btn " href="form/register.jsp"><i class="fa fa-registered mr-1"></i>Đăng ký</a>
-              </div>
-            </div>
-          </li>
+       <!-- ------thay đổi---------->
+       <c:choose> 
+          <c:when test="${user==null&&role==null}"> 
+               <li class="nav-item  mr-4">
+                  <div class="dropdown show">
+                       <a class="btn btn-outline-dark dropdown-toggle"  role="button" id="dropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         <i class="fa fa-user mr-2"></i>Đăng nhập
+                       </a>
+                    <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item btn" href="${pageContext.request.contextPath}/LoginServlet"><i class="fa fa-sign-in-alt mr-1"></i>Đăng nhập</a>
+                      <a class="dropdown-item btn " href="register.jsp"><i class="fa fa-registered mr-1"></i>Đăng ký</a>
+                    </div>
+                   </div>
+               </li>
+          </c:when>
+          <c:when test="${user!=null&& role=='1'}"> 
+               <li class="nav-item  mr-4">
+                  <div class="dropdown show">
+                       <a class="btn btn-outline-dark dropdown-toggle"  role="button" id="dropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         <i class="fa fa-user mr-2"></i>${user}${role}
+                       </a>
+                    <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
+                       <a class="dropdown-item btn" href="${pageContext.request.contextPath}/LogOut"><i class="fas fa-sign-out-alt mr-1"></i>Đăng xuất</a>
+                    </div>
+                   </div>
+               </li>
+          </c:when>  
+          <c:when test="${user!=null && role=='2'}"> 
+               <li class="nav-item  mr-4">
+                  <div class="dropdown show">
+                       <a class="btn btn-outline-dark dropdown-toggle"  role="button" id="dropdownMenuLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         <i class="fa fa-user mr-2"></i>${user} ${role}
+                       </a>
+                    <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
+						<a class="dropdown-item btn" href="${pageContext.request.contextPath}/LogOut"><i class="fas fa-sign-out-alt mr-1"></i>Đăng xuất</a>
+                    </div>
+                   </div>
+               </li>
+          </c:when> 
+        </c:choose> 
+          
+           <!-- ---------------->
           <li class="nav-item">
             <a class="nav-link" href="#">Đặt ngay</a>
           </li>
@@ -716,6 +749,7 @@
         aria-hidden="true"></i></a> </div>
   <!--footer-->
   <%@ include file="form/include/footer.jsp"%>
+  <!--footer -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>

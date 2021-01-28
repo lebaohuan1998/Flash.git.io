@@ -9,13 +9,12 @@
     <title>Register</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
-      <link rel="stylesheet" href="form/fontawesome-free-5.15.1-web/css/all.min.css">
+      <link rel="stylesheet" href="public/fontawesome-free-5.15.1-web/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
     </script>
-    <link href="form/css/style.css" rel="stylesheet">
-    <script type="text/javascript" src="form/jquery/index.js"></script>
+    <link rel="stylesheet" href="public/css/style.css" >
 </head>
 
 <body>
@@ -23,7 +22,7 @@
     <nav class="navbar navbar-expand-xl bg-dark sticky-top ">
         <a class="navbar-brand mr-5" href="home-page.jsp"><img src="form/pic/logo.png" class="" height="60px"></a>
     </nav>
-    <div class="container-fluid bg ">
+    <div class="container-fluid bg-light ">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="form-block mx-auto">
@@ -59,15 +58,6 @@
                             <label for="email">Email(*)</label>
                             <input type="email" id="email" class="form-control col" placeholder="Nhập email">
                         </div>
-                        <div class="form-group col-sm-4">
-                            <label class="dot">.</label>
-                            <input type="button" class="form-control codeemail" value="Gửi mã xác thực" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="code" class="label">Mã xác thực(*)</label>
-                        <input type="code" class="form-control" id="code" placeholder="Nhập mã xác thực">
-                        <p class=""></p>
                     </div>
                     <div class="form-group">
                       <label for="code" class="label">SĐT(*)</label>
@@ -78,22 +68,6 @@
                         <label class="label">Địa chỉ(*)</label>
                         <input type="text" class="form-control" placeholder="Theo CMND hoặc căn cước công dân" />
                     </div>
-                    <!-- <div class=" form-group">
-                        <div class="form-row">
-                            <div class="form-group col-sm-4">
-                                <label for="myCity">Phường/Xã</label>
-                                <input type="text" class="form-control" id="myCity">
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label for="myState">Quận/Huyện</label>
-                                <input type="text" class="form-control" id="myCity">
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label for="myZip">Tỉnh/Thành Phố</label>
-                                <input type="text" class="form-control" id="myZip">
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="form-group">
                         <label class="label" id="dt1" hidden>Thông tin liên hệ</label>
                         <input type="text" class="form-control" id="dt2" onchange="myclick1();"

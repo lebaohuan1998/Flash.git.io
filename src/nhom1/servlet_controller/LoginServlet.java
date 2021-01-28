@@ -48,18 +48,18 @@ public class LoginServlet extends HttpServlet {
 		AccountDAO accDAO = new AccountDAO();
 		if(accDAO.getAccount(user, pwd) && user != "" && pwd != ""){
 			int role = accDAO.getRole(user, pwd).getRole();
-			session.setAttribute("user", user);
+			session.setAttribute("user", accDAO.getRole(user, pwd).getFullName());
 			if (role == 1) {
 				session.setAttribute("role", "1");//employee admin
-				response.sendRedirect(request.getContextPath() + "/EmployeeServlet");
+				response.sendRedirect(request.getContextPath() + "/HomePageServlet");
 				
 			} else if (role == 2)  {
 				session.setAttribute("role", "2");//car admin
-				response.sendRedirect(request.getContextPath() + "/CarServlet");
+				response.sendRedirect(request.getContextPath() + "/HomePageServlet");
 			}
 		}else{
+			session.setAttribute("bug", "false");
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/log-in.jsp");
-			System.out.println("Wrong username and pass");
 			rd.forward(request, response);
 		}
 	}

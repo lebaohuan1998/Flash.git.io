@@ -41,9 +41,9 @@ public class CheckLogined implements Filter {
 		if(obj == null) {
 		chain.doFilter(request, response);
 		} else if(obj != null && obj.equals("1")) {
-			res.sendRedirect(req.getContextPath() + "/EmployeeServlet");
+			res.sendRedirect(req.getContextPath() + "/HomePageServlet");
 		} else if(obj != null && obj.equals("2")) {
-			res.sendRedirect(req.getContextPath() + "/CarServlet");
+			res.sendRedirect(req.getContextPath() + "/HomePageServlet");
 		}
 	}
 
