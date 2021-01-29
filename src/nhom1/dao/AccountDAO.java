@@ -44,7 +44,7 @@ public class AccountDAO {
 			ResultSet rs = preparedStmt.executeQuery();
 			if(rs.next()) {
 				int id = rs.getInt("users.id");
-				String username = rs.getString("users.username");
+				String username = rs.getString("users.email");
 				String password = rs.getString("users.password");
 				String fullName = rs.getString("users.fullName");
 				int role = rs.getInt("users.role");

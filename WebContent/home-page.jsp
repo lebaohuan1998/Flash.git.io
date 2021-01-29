@@ -26,7 +26,7 @@
 <div class="">
     <!--navbar-->
     <nav class="navbar navbar-expand-xl bg-dark sticky-top ">
-      <a class="navbar-brand mr-5" href="home-page.jsp"><img src="form/pic/logo.png" class="" height="60px"></a>
+      <a class="navbar-brand mr-5" href="${pageContext.request.contextPath}/HomePageServlet"><img src="form/pic/logo.png" class="" height="60px"></a>
       <button class="navbar-toggler bg-light btn-outline-dark" type="button" data-toggle="collapse"
         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
         aria-label="Toggle navigation">
@@ -67,7 +67,7 @@
                        </a>
                     <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item btn" href="${pageContext.request.contextPath}/LoginServlet"><i class="fa fa-sign-in-alt mr-1"></i>Đăng nhập</a>
-                      <a class="dropdown-item btn " href="register.jsp"><i class="fa fa-registered mr-1"></i>Đăng ký</a>
+                      <a class="dropdown-item btn " href="${pageContext.request.contextPath}/RegisterServlet"><i class="fa fa-registered mr-1"></i>Đăng ký</a>
                     </div>
                    </div>
                </li>

@@ -24,7 +24,7 @@
 <body>
   <!--navbar-->
   <nav class="navbar navbar-expand-xl bg-dark sticky-top ">
-    <a class="navbar-brand mr-5" href="home-page.jsp"><img src="form/pic/logo.png" class="" height="60px"></a>
+    <a class="navbar-brand mr-5" href="${pageContext.request.contextPath}/HomePageServlet"><img src="form/pic/logo.png" class="" height="60px"></a>
   </nav>
 
   <div>
@@ -70,7 +70,7 @@
                   <i class="fa fa-google-plus-square"></i> Đăng nhập Google</a>
               </div>
               <span class="text-center my-3 d-block ">Nếu bạn chưa có tài khoản
-                <a href="register.jsp">Tại đây</a>
+                <a href="${pageContext.request.contextPath}/RegisterServlet">Tại đây</a>
               </span>
             </div>
           </div>

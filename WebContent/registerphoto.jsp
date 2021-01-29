@@ -20,7 +20,7 @@
 <body>
     <!--navbar-->
     <nav class="navbar navbar-expand-xl bg-dark sticky-top ">
-        <a class="navbar-brand mr-5" href="home-page.jsp"><img src="form/pic/logo.png" class="" height="60px"></a>
+        <a class="navbar-brand mr-5" href="${pageContext.request.contextPath}/HomePageServlet"><img src="form/pic/logo.png" class="" height="60px"></a>
     </nav>
     <div class="container-fluid bg-light ">
         <div class="row justify-content-center">
