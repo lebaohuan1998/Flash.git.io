@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import nhom1.dao.UserNorRegister;
+import nhom1.md5.MD5Library;
 import nhom1.model.NormalUser;
 
 /**
@@ -19,7 +20,8 @@ import nhom1.model.NormalUser;
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UserNorRegister unr =new UserNorRegister();
+	private UserNorRegister unr = new UserNorRegister();
+	private MD5Library md = new MD5Library();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -53,16 +55,18 @@ public class RegisterServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		System.out.println(email);
 		String phone = request.getParameter("phone");
-
-		NormalUser nu = new NormalUser(fullName, pwd, phone, email,"1");
-
-		if (unr.Register(nu)) {
-			System.out.println("success");
-			response.sendRedirect(request.getContextPath() + "/LoginServlet");
+		if (unr.checkEmailDupplicate(email)) {
+			
+			response.sendRedirect(request.getContextPath() + "/RegisterServlet");
 		} else {
-			System.out.println("false");
-			response.sendRedirect(request.getContextPath() + "/RegisterServlet?command=LOAD_UPDATE&" + "&message="
-					+ URLEncoder.encode("Something wrong", "UTF-8"));
+			NormalUser nu = new NormalUser(fullName, md.md5(pwd), phone, email, "1");
+			if (unr.Register(nu)) {
+				System.out.println("success");
+				response.sendRedirect(request.getContextPath() + "/LoginServlet");
+			} else {
+				System.out.println("false");
+				response.sendRedirect(request.getContextPath() + "/RegisterServlet");
+			}
 		}
 
 	}

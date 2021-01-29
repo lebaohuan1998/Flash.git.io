@@ -8,17 +8,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Đăng nhập</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-  </script>
-    <link rel="stylesheet" href="public/fontawesome-free-5.15.1-web/css/all.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
-  </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>  <link rel="stylesheet" href="public/fontawesome-free-5.15.1-web/css/all.min.css">
+  
    <link rel="stylesheet" href="public/css/style.css" >
    <link rel="stylesheet" href="public/css/bootstrap.min.css">
-   
 </head>
 
 <body>
@@ -41,11 +35,6 @@
               <label for="email">Email/SĐT</label>
               <input type="text" class="form-control" name="username" id="username" placeholder="Đăng nhập email hoặc số điện thoại">
               <span id="username_error"></span>
-            <!--   <c:choose> 
-          			<c:when test="${bug=='false'}"> 
-              			<p class="bg-dark">tài khoản hoạc mật khẩu không đúng</p>
-          			</c:when>
-          		</c:choose>-->
             </div>
             <div class="form-group">
               <label for="password" class="label">Mật khẩu</label>
@@ -78,6 +67,9 @@
       </div>
     </div>
       <%@ include file="form/include/footer.jsp"%>
+     <script src="${pageContext.request.contextPath}/public/js/validate/login.js"></script>
+     
+
   </body>
 
 </html>

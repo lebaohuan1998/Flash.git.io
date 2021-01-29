@@ -42,6 +42,38 @@ public class UserNorRegister {
 		}
 		return false;
 	}
+	
+	//check mail duplicate
+	public boolean checkEmailDupplicate(String email) {
+		try {
+			connection = ConnectionClass.createConnect().getConnection();
+			preparedStmt = connection.prepareStatement(NormalUserQuery.GETEMAIL);
+			preparedStmt.setString(1, email);
+			rs=preparedStmt.executeQuery();
+			String e="";
+			while (rs.next()) {
+				e = rs.getString("email");
+			}
+			if(e.isEmpty()) {
+				return false;
+			}else {
+				return true;
+			}
+		} catch (SQLException e) {
+			return false;
+		} finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+				if (preparedStmt != null) {
+					preparedStmt.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 
 }

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import nhom1.dao.AccountDAO;
+import nhom1.md5.MD5Library;
 
 /**
  * Servlet implementation class LoginServlet
@@ -21,6 +22,7 @@ public class LoginServlet extends HttpServlet {
 //	private String userID = "sang";
 //	private String password = "123";
 //	private int role = 1;
+	private MD5Library md= new MD5Library();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -46,9 +48,9 @@ public class LoginServlet extends HttpServlet {
 		System.out.println(pwd);
 		HttpSession session = request.getSession();
 		AccountDAO accDAO = new AccountDAO();
-		if(accDAO.getAccount(user, pwd) && user != "" && pwd != ""){
-			int role = accDAO.getRole(user, pwd).getRole();
-			session.setAttribute("user", accDAO.getRole(user, pwd).getFullName());
+		if(accDAO.getAccount(user, md.md5(pwd)) && user != "" && pwd != ""){
+			int role = accDAO.getRole(user, md.md5(pwd)).getRole();
+			session.setAttribute("user", accDAO.getRole(user, md.md5(pwd)).getFullName());
 			if (role == 1) {
 				session.setAttribute("role", "1");//employee admin
 				response.sendRedirect(request.getContextPath() + "/HomePageServlet");

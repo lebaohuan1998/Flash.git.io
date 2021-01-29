@@ -9,15 +9,11 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Register Flash</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-  </script>
-    <link rel="stylesheet" href="public/fontawesome-free-5.15.1-web/css/all.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
-  </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <link rel="stylesheet" href="public/css/style.css" >
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>  <link rel="stylesheet" href="public/fontawesome-free-5.15.1-web/css/all.min.css">
+  
+   <link rel="stylesheet" href="public/css/style.css" >
+   <link rel="stylesheet" href="public/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -34,30 +30,25 @@
             <h1>Đăng ký Flash</h1>
           </div>
 
- <form id="login-form" class="form" action="${pageContext.request.contextPath}/RegisterServlet" method="post">
-          <div class="form-row">
-            <div class="form-group col-sm-6">
+        <form id="register-form" class="form" action="${pageContext.request.contextPath}/RegisterServlet" method="post">
+         <div class="form-group">
+              <label class="email">Email(*)</label>
+              <input type="email" id="email" name ="email" class="form-control col" placeholder="Nhập email">
+          </div>
+          <div class="form-group">
               <label class="label">Họ và Tên(*)</label>
               <input type="" class="form-control" name="fullName"  placeholder="Nhập họ và tên" />
-            </div>
-        </div>
+         </div>
           <div class="form-group">
             <label class="label">Mật khẩu(*)</label>
-            <input type="password" class="form-control"  placeholder="Mật khẩu ít nhất 8-16 ký tự" />
+            <input type="password" id="password" class="form-control" name="password"  placeholder="nhập mật khẩu" />
             <p class=""></p>
           </div>
           <div class="form-group">
             <label class="label">Nhập lại mật khẩu(*)</label>
-            <input type="password" class="form-control" name="password" placeholder="Mật khẩu ít nhất 8-16 ký tự" />
+            <input type="password" id="repassword" class="form-control" name="repassword" placeholder="nhập lại mật khẩu" />
             <p class=""></p>
           </div>
-          <div class="form-row">
-            <div class="form-group col-sm-8">
-              <label for="email">Email(*)</label>
-              <input type="email" id="email" name ="email" class="form-control col" placeholder="Nhập email">
-            </div>
-          </div>
-          
           <div class="form-group">
             <label class="label">SĐT</label>
             <input type="phone"  class="form-control" name="phone" />
@@ -66,7 +57,7 @@
             <button type="submit" class="btn btn-info btn-block my-3">Tạo tài khoản</button>
           </div>
           
-       </form>
+        </form>
         
           <div class="form-group mb-0">
             <span class="my-3 d-block">Khi bạn nhấn Đăng ký, bạn đã đồng ý thực hiện mọi giao dịch mua bán
@@ -84,6 +75,7 @@
   </div>
 
   <%@ include file="form/include/footer.jsp"%>
+   <script src="${pageContext.request.contextPath}/public/js/validate/registeruser.js"></script>
 </body>
 
 </html>
