@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet Filter implementation class CarAdmin
  */
-@WebFilter(urlPatterns = { "/CarServlet", "/BookingOfficeServlet", "/ParkingLotServlet", "/TripServlet",
+@WebFilter(urlPatterns = { "/CarServlet", "/ProfileUser","/BookingOfficeServlet", "/ParkingLotServlet", "/TripServlet",
 		"/TicketServlet"})
 public class CarAdmin implements Filter {
 
@@ -46,10 +46,10 @@ public class CarAdmin implements Filter {
 		
 		Object obj = req.getSession().getAttribute("role");
 		if (obj != null) {
-			if (obj.equals("2")) {
+			if (obj.equals("1")) {
 				chain.doFilter(request, response);
 			} else {
-				res.sendRedirect(req.getContextPath() + "/EmployeeServlet");
+				res.sendRedirect(req.getContextPath() + "/HomePageServlet");
 			}
 		} else {
 			res.sendRedirect(req.getContextPath() + "/LoginServlet");

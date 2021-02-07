@@ -68,6 +68,7 @@
                     <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item btn" href="${pageContext.request.contextPath}/LoginServlet"><i class="fa fa-sign-in-alt mr-1"></i>Đăng nhập</a>
                       <a class="dropdown-item btn " href="${pageContext.request.contextPath}/RegisterServlet"><i class="fa fa-registered mr-1"></i>Đăng ký</a>
+                      <a class="dropdown-item btn " href="${pageContext.request.contextPath}/RegisterPhotographerOrModel"><i class="fa fa-registered mr-1"></i>Đăng ký thợ chụp</a>
                     </div>
                    </div>
                </li>
@@ -80,6 +81,7 @@
                          <i class="fa fa-user mr-2"></i>${user}${role}
                        </a>
                     <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item btn " href="${pageContext.request.contextPath}/ProfileUser"><i class="fa fa-info mr-1"></i>Thông tin cá nhân</a>                       
                        <a class="dropdown-item btn" href="${pageContext.request.contextPath}/LogOut"><i class="fas fa-sign-out-alt mr-1"></i>Đăng xuất</a>
                     </div>
                    </div>

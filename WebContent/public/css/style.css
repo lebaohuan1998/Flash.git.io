@@ -7,7 +7,6 @@ html, body {
 	font-weight: bold;
 }
 .bg {
-	background: url('form/pic/background.jpg') no-repeat;
 	background-size: cover;
 	width: 100%;
 	height: 1000px;
@@ -101,6 +100,72 @@ h1{
 	display: block;
     margin-bottom: 11px;
 }
-.foot{
-	height: 500px;
+
+
+.up{
+	font-family:  "Raleway";
+	color: #FF9900;
+	font-size: 30px;
+}
+.up1{
+	/* background-color: #00ADEF; */
+	height: 40px;
+}
+.col-sm-6{
+	font-family: 'Times New Roman', Times, serif;
+}
+.btn{
+	background-color: white;
+}
+.se {
+	width: 800px;
+   box-sizing: border-box;
+   border: 2px solid #ccc;
+   border-radius: 4px;
+   font-size: 16px;
+   margin-left: 0px;
+   background-color: white;
+   background-position: 10px 10px; 
+   background-repeat: no-repeat;
+   padding: 12px 20px 12px 40px;
+   -webkit-transition: width 0.4s ease-in-out;
+   transition: width 0.4s ease-in-out;
+ }
+.se1{
+   width: 97px;
+   box-sizing: border-box;
+   border: 2px solid #ccc;
+   border-radius: 4px;
+   font-size: 16px;
+   margin-left: 1px;
+   background-color: white;
+   background-position: 10px 10px; 
+   background-repeat: no-repeat;
+   padding: 12px 10px 12px 15px;
+   -webkit-transition: width 0.4s ease-in-out;
+   transition: width 0.4s ease-in-out;
+}
+.btn1{
+	margin-left: 3vh;
+}
+.gender{
+/* margin-left: 20px; */
+height: 17px;
+width: 17px;
+}
+.female{
+	margin-left: 40px;
+}
+.t{
+	margin-left: -40px;
+}
+.si{
+	font-family:"Raleway";
+	color: #778899;
+	font-size: 14px;
+	margin-top: 2vh;
+}
+.cachbar{
+	margin-top: 5em;
+	margin-bottom: 4em;
 }

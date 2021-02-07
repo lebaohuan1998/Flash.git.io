@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Register Flash</title>
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>  <link rel="stylesheet" href="public/fontawesome-free-5.15.1-web/css/all.min.css">
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>  
+<link rel="stylesheet" href="public/fontawesome-free-5.15.1-web/css/all.min.css">
   
    <link rel="stylesheet" href="public/css/style.css" >
    <link rel="stylesheet" href="public/css/bootstrap.min.css">
@@ -34,6 +36,11 @@
          <div class="form-group">
               <label class="email">Email(*)</label>
               <input type="email" id="email" name ="email" class="form-control col" placeholder="Nhập email">
+              <c:choose>
+              <c:when test="${param.err=='false' }">
+                     <p id="emaildupplicate" class="alert alert-danger p-1 my-1"> Email đã tồn tại </p>
+              </c:when>
+              </c:choose>
           </div>
           <div class="form-group">
               <label class="label">Họ và Tên(*)</label>
@@ -66,7 +73,7 @@
           </div>
           <div class="form-group mb-0">
             <span class="my-3 d-block">Nếu bạn muốn đăng ký là người chụp ảnh hay người mẫu
-              <a href="registerphoto.jsp">tại đây</a>
+              <a href="${pageContext.request.contextPath}/RegisterPhotographerOrModel">tại đây</a>
             </span>
           </div>
         </div>

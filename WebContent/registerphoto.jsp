@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
     
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Register</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-    </script>
-      <link rel="stylesheet" href="public/fontawesome-free-5.15.1-web/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
-    </script>
-    <link rel="stylesheet" href="public/css/style.css" >
+    <title>Register Photographer Or Model</title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>  
+<link rel="stylesheet" href="public/fontawesome-free-5.15.1-web/css/all.min.css">
+  
+   <link rel="stylesheet" href="public/css/style.css" >
+   <link rel="stylesheet" href="public/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -32,62 +32,45 @@
                     <div class="form-group text-center ">
                         <h1>Thợ ảnh/người mẫu</h1>
                     </div>
-                    <div class="form-row">
-                      <div class="form-group col-sm-6">
+                <form id="registerphotoormodel-form" class="form" action="${pageContext.request.contextPath}/RegisterPhotographerOrModel" method="post">
+                    
+                   <div class="form-group ">
+                            <label for="email">Email(*)</label>
+                            <input type="text" id="email" name="email" class="form-control col" placeholder="Nhập email">
+                            <c:choose>
+              					<c:when test="${param.err =='false' }">
+                    					 <p id="emaildupplicate" class="alert alert-danger p-1 my-1"> Email đã tồn tại </p>
+              					</c:when>
+              				</c:choose>
+                   </div>
+                    <div class="form-group">
                         <label class="label">Họ và Tên(*)</label>
-                        <input type="password" class="form-control" placeholder="Nhập tên theo CMND" />
-                      </div>
-                      <div class="form-group col-sm-6">
-                        <label class="label">Tên tài khoản</label>
-                        <input type="text" class="form-control" placeholder="Nhập tài khoản" />
-                    </div>
+                        <input type="text" class="form-control" name="fullname" placeholder="Nhập tên theo CMND" />
+                  </div>
+                  <div class="form-group">
+                        <label class="label">Nghệ Danh</label>
+                        <input type="text" class="form-control" name="nghedanh" placeholder="Nghệ danh" />
                   </div>
                     <div class="form-group">
                       <label class="label">Mật khẩu(*)</label>
-                      <input type="password" class="form-control" placeholder="Mật khẩu ít nhất 8-16 ký tự" />
-                      <p class=""></p>
+                      <input type="password" class="form-control" name="password" id="password" placeholder="Mật khẩu ít nhất 8-16 ký tự" />
                     </div>
                     <div class="form-group">
                       <label class="label">Nhập lại mật khẩu(*)</label>
-                      <input type="password" class="form-control" placeholder="Mật khẩu ít nhất 8-16 ký tự" />
-                      <p class=""></p>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-sm-8">
-                            <label for="email">Email(*)</label>
-                            <input type="email" id="email" class="form-control col" placeholder="Nhập email">
-                        </div>
+                      <input type="password" class="form-control" name="repassword" placeholder="nhập lại mật khẩu" />
                     </div>
                     <div class="form-group">
                       <label for="code" class="label">SĐT(*)</label>
-                      <input type="code" class="form-control" id="code" placeholder="Số điện thoại">
-                      <p class=""></p>
+                      <input type="text" class="form-control" id="code" name="phone" placeholder="Số điện thoại">
                   </div>
-                    <div class="form-group">
-                        <label class="label">Địa chỉ(*)</label>
-                        <input type="text" class="form-control" placeholder="Theo CMND hoặc căn cước công dân" />
-                    </div>
-                    <div class="form-group">
-                        <label class="label" id="dt1" hidden>Thông tin liên hệ</label>
-                        <input type="text" class="form-control" id="dt2" onchange="myclick1();"
-                            placeholder="Bạn có bao nhiêu năm kinh nghiệm" hidden />
-                    </div>
-                    <div class="form-group">
-                        <label class="label" id="dt3" hidden>Ở đâu</label>
-                        <input type="text" class="form-control" id="dt4" onchange="myclick1();"
-                            placeholder="Bạn đã từng làm tại công ty" hidden />
-                    </div>
-                    <div class="form-group ">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="information">
-                            <label class="form-check-label" for="information">Mọi thông tin bạn nhập đã chính xác (chúng
-                                tôi sẽ xác minh thông tin của bạn)</label>
-                        </div>
-                    </div>
+                  <div class="form-group">
+                      <label for="code" class="label">Số Thẻ Căn Cước(*)</label>
+                      <input type="text" class="form-control" id="tcc" name="thecancuoc" placeholder="Số thẻ căn cước">
+                  </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-info btn-block my-3">Tạo tài khoản</button>
                     </div>
+                 </form>
                     <div class="form-group">
                         <span class="my-3 d-block">Khi bạn nhấn Đăng ký, bạn đã đồng ý thực hiện mọi giao dịch mua bán
                             theo
@@ -98,6 +81,7 @@
         </div>
     </div>
  <%@ include file="form/include/footer.jsp"%>
+  <script src="${pageContext.request.contextPath}/public/js/validate/registerphoto.js"></script>
 
 </body>
 

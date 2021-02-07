@@ -1,3 +1,4 @@
+
 $(document).ready(
 	function(){
 		$.validator.addMethod("notNumb", function(value){
@@ -32,9 +33,9 @@ $(document).ready(
 				password:{
 					required: "Please enter password ",
                     maxlength: "Max length is 16 charaters",
-                    minlength: "Min lenght is 8 charaters",
+                    minlength: "Min lenght is 8 charaters"
 				},
-				
+
 			},
 		});
 	});

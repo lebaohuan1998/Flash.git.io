@@ -11,17 +11,30 @@ import java.util.Properties;
 public class ConnectionClass {
 	private static ConnectionClass instance;
 	private Connection connection;
+	
+//	private String host="node241350-flash.j.layershift.co.uk";
+//	private String db ="capstone1";
+//	
+	
 
 	private ConnectionClass() {
 //		Properties properties = new Properties();
 		try {
 //			properties.load(ConnectionClass.class.getResourceAsStream("/config.properties"));
+//			final String driver =("com.mysql.cj.jdbc.Driver"); 
+//			String url="jdbc:mysql://"+host+"/"+db;
+//			 String user = ("huan");
+//			 String pass = ("lebaohuan1998");
+//			 Class.forName(driver);
+//			 connection = DriverManager.getConnection(url, user, pass);
+//			
 			final String driver =("com.mysql.cj.jdbc.Driver");
 			final String server = ("jdbc:mysql://localhost:3306/capstone1");
 			final String user = ("huan");
 			final String pass = ("lebaohuan1998");
 			Class.forName(driver);
 			connection = DriverManager.getConnection(server, user, pass);
+
 		} catch ( SQLException ex) {
 			System.out.println("Database Connection Creation Failed : " + ex.getMessage());
 		} catch (ClassNotFoundException e) {

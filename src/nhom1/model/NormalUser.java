@@ -3,15 +3,22 @@ package nhom1.model;
 import java.util.Date;
 
 public class NormalUser {
+	private String id;
 	private String fullName;
 	private String pass;
 	private String numberPhone;
     private String email;
     private String address;
     private String role;
-    private Date bod;
+    private String bod;
+    private String gender;
     private String avata;
     private String status;
+    private Date createdDate;
+    private Date modifiedDate;
+    private String createBy;
+    private String modifiedBy;
+    
     
     
 	public NormalUser() {
@@ -19,8 +26,6 @@ public class NormalUser {
 		// TODO Auto-generated constructor stub
 	}
 	
-
-
 
 
 
@@ -36,11 +41,40 @@ public class NormalUser {
 
 
 
-
-
-	public NormalUser(String fullName, String pass, String numberPhone, String email, String address, String role,
-			Date bod, String avata, String status) {
+	public NormalUser(String fullName, String pass, String numberPhone, String email, String address, String bod) {
 		super();
+		this.fullName = fullName;
+		this.pass = pass;
+		this.numberPhone = numberPhone;
+		this.email = email;
+		this.address = address;
+		this.bod = bod;
+	}
+
+
+
+
+
+
+	public NormalUser(String fullName, String pass, String numberPhone, String email, String address, String bod,
+			String avata) {
+		super();
+		this.fullName = fullName;
+		this.pass = pass;
+		this.numberPhone = numberPhone;
+		this.email = email;
+		this.address = address;
+		this.bod = bod;
+		this.avata = avata;
+	}
+
+
+
+
+	public NormalUser(String id, String fullName, String pass, String numberPhone, String email, String address,
+			String role, String bod, String avata, String status,String gender) {
+		super();
+		this.id = id;
 		this.fullName = fullName;
 		this.pass = pass;
 		this.numberPhone = numberPhone;
@@ -50,12 +84,49 @@ public class NormalUser {
 		this.bod = bod;
 		this.avata = avata;
 		this.status = status;
+		this.gender=gender;
 	}
+
+
+
+
+
+
+	public String getGender() {
+		return gender;
+	}
+
+
+
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+
 
 
 	public String getFullName() {
 		return fullName;
 	}
+
+
+	public String getId() {
+		return id;
+	}
+
+
+
+
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+
+
 
 
 	public void setFullName(String fullName) {
@@ -113,12 +184,12 @@ public class NormalUser {
 	}
 
 
-	public Date getBod() {
+	public String getBod() {
 		return bod;
 	}
 
 
-	public void setBod(Date bod) {
+	public void setBod(String bod) {
 		this.bod = bod;
 	}
 
@@ -141,6 +212,41 @@ public class NormalUser {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+
+
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
+
+	public String getCreateBy() {
+		return createBy;
+	}
+
+	public void setCreateBy(String createBy) {
+		this.createBy = createBy;
+	}
+
+	public String getModifiedBy() {
+		return modifiedBy;
+	}
+
+	public void setModifiedBy(String modifiedBy) {
+		this.modifiedBy = modifiedBy;
+	}
+	
     
     
 

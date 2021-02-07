@@ -257,3 +257,7 @@ a.star {
 .hover-1:hover .hover-overlay {
   opacity: 0;
 }
+.side-1{
+    position: relative;
+    left: 850px;
+}

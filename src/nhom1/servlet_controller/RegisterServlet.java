@@ -9,8 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import nhom1.dao.UserNorRegister;
+import nhom1.dao.UserNorRegisterDAO;
 import nhom1.md5.MD5Library;
 import nhom1.model.NormalUser;
 
@@ -20,7 +21,7 @@ import nhom1.model.NormalUser;
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UserNorRegister unr = new UserNorRegister();
+	private UserNorRegisterDAO unr = new UserNorRegisterDAO();
 	private MD5Library md = new MD5Library();
 
 	/**
@@ -47,6 +48,9 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=utf-8");
 
 		String fullName = request.getParameter("fullName");
 		System.out.println(fullName);
@@ -56,16 +60,13 @@ public class RegisterServlet extends HttpServlet {
 		System.out.println(email);
 		String phone = request.getParameter("phone");
 		if (unr.checkEmailDupplicate(email)) {
-			
-			response.sendRedirect(request.getContextPath() + "/RegisterServlet");
+			response.sendRedirect(request.getContextPath() + "/RegisterServlet?err=false");
 		} else {
 			NormalUser nu = new NormalUser(fullName, md.md5(pwd), phone, email, "1");
 			if (unr.Register(nu)) {
-				System.out.println("success");
-				response.sendRedirect(request.getContextPath() + "/LoginServlet");
+				response.sendRedirect(request.getContextPath() + "/LoginServlet?Register=success");
 			} else {
-				System.out.println("false");
-				response.sendRedirect(request.getContextPath() + "/RegisterServlet");
+				response.sendRedirect(request.getContextPath() + "/RegisterServlet?Register=false");
 			}
 		}
 

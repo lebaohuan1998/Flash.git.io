@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet Filter implementation class EmployeeAdmin
  */
-@WebFilter("/EmployeeServlet")
+@WebFilter(urlPatterns = { "/EmployeeServlet", "/ProfileUser"})
 public class EmployeeAdmin implements Filter {
 
 	/**
