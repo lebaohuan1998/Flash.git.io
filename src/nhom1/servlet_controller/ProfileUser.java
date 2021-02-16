@@ -2,6 +2,8 @@ package nhom1.servlet_controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -56,6 +58,7 @@ public class ProfileUser extends HttpServlet {
 		request.setAttribute("address", nu.getAddress());
 		request.setAttribute("gender", nu.getGender());
 		session.setAttribute("imgname", nu.getAvata());
+		System.out.println(nu.getAvata());
 		RequestDispatcher dispatcher = request.getRequestDispatcher("form/profile-user.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -90,11 +93,11 @@ public class ProfileUser extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		int id = (Integer) session.getAttribute("id");
-		String email= (String) session.getAttribute("email");
+		String email = (String) session.getAttribute("email");
 		String name = request.getParameter("user");
 		String dob = request.getParameter("dob");
-		if(dob.equals("")) {
-			dob=null;
+		if (dob.equals("")) {
+			dob = null;
 		}
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
@@ -107,25 +110,24 @@ public class ProfileUser extends HttpServlet {
 		nu.setNumberPhone(phone);
 
 		// image
-		File folderUpload = new File(System.getProperty("user.home") + "\\Desktop\\WEB\\Flash\\WebContent\\form\\pic\\imageuser\\"+email);
-		if(!folderUpload.exists()) {
-			folderUpload.mkdirs();
-		}
-		for (Part part : request.getParts()) {
-			String fileName = extractFileName(part);
-			fileName = new File(fileName).getName();
-			if(fileName.isEmpty()) {
-				break;
-			}else {
-				part.write(folderUpload.getAbsolutePath()  +"\\"+ fileName);
-				session.setAttribute("imgname", fileName);
-				break;
+
+		Part part = request.getPart("file");
+		System.out.println(request.getAttribute("file"));
+		if (part != null) {
+			String realPath = request.getServletContext().getRealPath("/images/" + email);
+			String filename = Path.of(part.getSubmittedFileName()).getFileName().toString();
+			if (!Files.exists(Path.of(realPath))) {
+				Files.createDirectories(Path.of(realPath));
 			}
+			if (!filename.equals("")) {
+				part.write(realPath + "/" + email + ".jpg");
+				session.setAttribute("imgname", email + ".jpg");
+			}
+
+			System.out.println(filename);
 		}
-		nu.setAvata((String)session.getAttribute("imgname"));
+		nu.setAvata((String) session.getAttribute("imgname"));
 		und.updateInfo(nu, id);
-		System.out.println(session.getAttribute("email"));
-		System.out.println(session.getAttribute("imgname"));
 		response.sendRedirect(request.getContextPath() + "/ProfileUser?update=true");
 	}
 

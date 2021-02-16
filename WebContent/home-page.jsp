@@ -56,6 +56,7 @@
           </li>
         </ul>
         <ul class="navbar-nav mr-auto">
+        
        <!-- ------thay đổi---------->
        <c:choose> 
           <c:when test="${user==null&&role==null}"> 
