@@ -9,11 +9,11 @@
         <i class="fa fa-bars" aria-hidden="true"></i></span>
       </button>
 
-      <div class="collapse navbar-collapse menu " id="navbarSupportedContent">
+      <div class="collapse navbar-collapse  " id="navbarSupportedContent">
          <div class="side-1">
           <ul class="navbar-nav   ">      
                <li class="nav-item ">
-                  <div class="dropdown show">
+                  <div class="dropdown ">
                        <a class="btn btn-outline-dark dropdown-toggle"  role="button" id="dropdownMenuLink"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                          <i class="fa fa-user mr-2"></i>${user}

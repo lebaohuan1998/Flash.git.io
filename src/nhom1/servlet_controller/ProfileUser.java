@@ -58,7 +58,7 @@ public class ProfileUser extends HttpServlet {
 		request.setAttribute("address", nu.getAddress());
 		request.setAttribute("gender", nu.getGender());
 		session.setAttribute("imgname", nu.getAvata());
-		System.out.println(nu.getAvata());
+		System.out.println("name :"+nu.getAvata());
 		RequestDispatcher dispatcher = request.getRequestDispatcher("form/profile-user.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -112,7 +112,7 @@ public class ProfileUser extends HttpServlet {
 		// image
 
 		Part part = request.getPart("file");
-		System.out.println(request.getAttribute("file"));
+		System.out.println("name1:"+request.getAttribute("file"));
 		if (part != null) {
 			String realPath = request.getServletContext().getRealPath("/images/" + email);
 			String filename = Path.of(part.getSubmittedFileName()).getFileName().toString();
@@ -120,11 +120,11 @@ public class ProfileUser extends HttpServlet {
 				Files.createDirectories(Path.of(realPath));
 			}
 			if (!filename.equals("")) {
-				part.write(realPath + "/" + email + ".jpg");
-				session.setAttribute("imgname", email + ".jpg");
+				part.write(realPath + "/" + email);
+				session.setAttribute("imgname", email);
 			}
 
-			System.out.println(filename);
+			System.out.println("name2:"+filename);
 		}
 		nu.setAvata((String) session.getAttribute("imgname"));
 		und.updateInfo(nu, id);
@@ -154,17 +154,6 @@ public class ProfileUser extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/ProfileUser?err=false");
 		}
 
-	}
-
-	private String extractFileName(Part part) {
-		String contentDisp = part.getHeader("content-disposition");
-		String[] items = contentDisp.split(";");
-		for (String s : items) {
-			if (s.trim().startsWith("filename")) {
-				return s.substring(s.indexOf("=") + 2, s.length() - 1);
-			}
-		}
-		return "";
 	}
 
 }
