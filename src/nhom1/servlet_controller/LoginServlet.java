@@ -22,9 +22,6 @@ import nhom1.model.GooglePojo;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-//	private String userID = "sang";
-//	private String password = "123";
-//	private int role = 1;
 	private MD5Library md = new MD5Library();
 
 	/**
@@ -61,25 +58,36 @@ public class LoginServlet extends HttpServlet {
 		AccountDAO accDAO = new AccountDAO();
 		if (r.equals("1")) {
 			if (accDAO.getAccountUser(user, md.md5(pwd)) && user != "" && pwd != "") {
-				session.setAttribute("user", accDAO.getRoleUser(user, md.md5(pwd)).getFullName());
-				session.setAttribute("role", "1");// employee admin
-				session.setAttribute("id", accDAO.getRoleUser(user, md.md5(pwd)).getId());
-				session.setAttribute("pass", accDAO.getRoleUser(user, md.md5(pwd)).getPassword());
-				session.setAttribute("email", user);
-				response.sendRedirect(request.getContextPath() + "/HomePageServlet");
-
+				// check email active
+				if (accDAO.getRoleUser(user, md.md5(pwd)).getStatus() == null
+						|| accDAO.getRoleUser(user, md.md5(pwd)).getStatus().equals("deactive")) {
+					response.sendRedirect(request.getContextPath() + "/LoginServlet?acc=notactive");
+				} else {
+					session.setAttribute("user", accDAO.getRoleUser(user, md.md5(pwd)).getFullName());
+					session.setAttribute("role", "1");// employee admin
+					session.setAttribute("id", accDAO.getRoleUser(user, md.md5(pwd)).getId());
+					session.setAttribute("pass", accDAO.getRoleUser(user, md.md5(pwd)).getPassword());
+					session.setAttribute("email", user);
+					response.sendRedirect(request.getContextPath() + "/HomePageServlet");
+				}
 			} else {
 				response.sendRedirect(request.getContextPath() + "/LoginServlet?login=false");
 
 			}
 		} else if (r.equals("2")) {
 			if (accDAO.getAccountPhoto(user, md.md5(pwd)) && user != "" && pwd != "") {
-				session.setAttribute("user", accDAO.getRolePhoto(user, md.md5(pwd)).getFullName());
-				session.setAttribute("role", "2");// employee admin
-				session.setAttribute("id", accDAO.getRoleUser(user, md.md5(pwd)).getId());
-				session.setAttribute("pass", accDAO.getRoleUser(user, md.md5(pwd)).getPassword());
-				session.setAttribute("email", user);
-				response.sendRedirect(request.getContextPath() + "/HomePageServlet");
+				// check email active
+				if (accDAO.getRolePhoto(user, md.md5(pwd)).getStatus() == null
+						|| accDAO.getRoleUser(user, md.md5(pwd)).getStatus().equals("deactive")) {
+					response.sendRedirect(request.getContextPath() + "/LoginServlet?acc=notactive");
+				} else {
+					session.setAttribute("user", accDAO.getRolePhoto(user, md.md5(pwd)).getFullName());
+					session.setAttribute("role", "2");// employee admin
+					session.setAttribute("id", accDAO.getRoleUser(user, md.md5(pwd)).getId());
+					session.setAttribute("pass", accDAO.getRoleUser(user, md.md5(pwd)).getPassword());
+					session.setAttribute("email", user);
+					response.sendRedirect(request.getContextPath() + "/HomePageServlet");
+				}
 
 			} else {
 				response.sendRedirect(request.getContextPath() + "/LoginServlet?login=false");

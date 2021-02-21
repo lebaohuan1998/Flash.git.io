@@ -23,7 +23,8 @@ public class UserNorRegisterDAO {
 			preparedStmt.setString(2, u.getPass());
 			preparedStmt.setString(3, u.getFullName());
 			preparedStmt.setString(4, u.getNumberPhone());
-			preparedStmt.setString(5, u.getRole());
+			preparedStmt.setString(5, u.getTokenEmail());
+			preparedStmt.setString(6, u.getRole());
 			preparedStmt.execute();
 			return true;
 		} catch (SQLException e) {

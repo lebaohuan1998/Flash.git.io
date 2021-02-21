@@ -27,7 +27,13 @@
              <c:if  test="${param.Register =='success'}" >
                 <div class="alert alert-success in">
                       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                      <strong>Thành công!</strong> bạn đã đăng ký thành công.
+                      <strong>Thành công!</strong> bạn đã đăng ký thành công, hãy vào mail để xác thực email của bạn
+                </div>              
+             </c:if>
+             <c:if  test="${param.acc =='notactive'}" >
+                <div class="alert alert-warning">
+                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                      <strong>Không thành công!</strong> Tài khoản bạn chưa được xác thực email!
                 </div>              
              </c:if>
       <div class="row justify-content-center half">

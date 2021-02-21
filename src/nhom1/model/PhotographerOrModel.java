@@ -3,6 +3,14 @@ package nhom1.model;
 import java.util.Date;
 
 public class PhotographerOrModel {
+	private String id;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	private String email;
 	private String fullName;
 	private String ngheDanh;
@@ -13,6 +21,7 @@ public class PhotographerOrModel {
 	private String address;
 	private String role;
 	private String avata;
+	private String tokenEmail;
 	private String status;
 	private String exp;
     private Date createdDate;
@@ -51,6 +60,20 @@ public class PhotographerOrModel {
 		this.avata = avata;
 		this.status = status;
 		this.exp = exp;
+	}
+	
+	public PhotographerOrModel(String email, String fullName, String tokenEmail) {
+		super();
+		this.email = email;
+		this.fullName = fullName;
+		this.tokenEmail = tokenEmail;
+		
+	}
+	public String getTokenEmail() {
+		return tokenEmail;
+	}
+	public void setTokenEmail(String tokenEmail) {
+		this.tokenEmail = tokenEmail;
 	}
 	public String getEmail() {
 		return email;

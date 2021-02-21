@@ -86,6 +86,30 @@ public class UserNorInfoDAO {
 		}
 		return false;
 	}
+	public boolean updateActive(String status, int id) {
+		try {
+			connection = ConnectionClass.createConnect().getConnection();
+			preparedStmt = connection.prepareStatement(NormalUserQuery.UPDATE_ACTIVEMAIL);
+			preparedStmt.setString(1, status);
+			preparedStmt.setInt(2, id);
+			preparedStmt.execute();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+				if (preparedStmt != null) {
+					preparedStmt.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return false;
+	}
 	public boolean updatePass( String pass, int id) {
 		try {
 			connection = ConnectionClass.createConnect().getConnection();

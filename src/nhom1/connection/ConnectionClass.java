@@ -10,7 +10,7 @@ public class ConnectionClass {
 	private static ConnectionClass instance;
 	private Connection connection;
 	
-//	private String host="node242424-flash.j.layershift.co.uk";
+//	private String host="node242810-flash1.j.layershift.co.uk";
 //	private String db ="capstone1";
 //	
 	
@@ -22,7 +22,7 @@ public class ConnectionClass {
 //			final String driver =("com.mysql.cj.jdbc.Driver"); 
 //			String url="jdbc:mysql://"+host+"/"+db;
 //			 String user = ("root");
-//			 String pass = ("FMZtya84780");
+//			 String pass = ("ALLmlt82468");
 //			 Class.forName(driver);
 //			 connection = DriverManager.getConnection(url, user, pass);
 ////			

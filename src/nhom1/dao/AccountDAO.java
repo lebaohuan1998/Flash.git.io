@@ -10,6 +10,8 @@ import java.util.List;
 import nhom1.connection.ConnectionClass;
 import nhom1.model.Account;
 import nhom1.model.Car;
+import nhom1.model.NormalUser;
+import nhom1.model.PhotographerOrModel;
 import nhom1.ultility.AccountQuery;
 import nhom1.ultility.BookingOfficeQuery;
 import nhom1.ultility.CarQuery;
@@ -63,7 +65,9 @@ public class AccountDAO {
 				String password = rs.getString("users.password");
 				String fullName = rs.getString("users.fullName");
 				int role = rs.getInt("users.role");
+				String status= rs.getString("users.status");
 				a = new Account(id, username, password,fullName, role);
+				a.setStatus(status);
 			}
 			return a;
 		} catch(SQLException e) {
@@ -85,7 +89,52 @@ public class AccountDAO {
 				String fullName = rs.getString("photographerormodel.fullName");
 				String password = rs.getString("photographerormodel.password");
 				int role = rs.getInt("photographerormodel.role");
+				String status= rs.getString("users.status");
 				a = new Account(id, username, password,fullName, role);
+				a.setStatus(status);
+			}
+			return a;
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return a;
+	}
+	public NormalUser getActiveEmailUser(String name, String token){
+		NormalUser a=null ;
+		try {
+			connection = ConnectionClass.createConnect().getConnection();
+			preparedStmt = connection.prepareStatement(AccountQuery.GETACTIVEEMAILUSER);
+			preparedStmt.setString(1, name);
+			preparedStmt.setString(2, token);
+			ResultSet rs = preparedStmt.executeQuery();
+			if(rs.next()) {
+				String id = rs.getString("users.id");
+				String email = rs.getString("users.email");
+				String fullName = rs.getString("users.fullName");	
+				
+				a =new NormalUser(fullName, email, token);
+				a.setId(id);
+			}
+			return a;
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return a;
+	}
+	public PhotographerOrModel getActiveEmailPhoto(String name, String token){
+		PhotographerOrModel a = null;
+		try {
+			connection = ConnectionClass.createConnect().getConnection();
+			preparedStmt = connection.prepareStatement(AccountQuery.GETACTIVEEMAILPHOTO);
+			preparedStmt.setString(1, name);
+			preparedStmt.setString(2, token);
+			ResultSet rs = preparedStmt.executeQuery();
+			if(rs.next()) {
+				String id = rs.getString("photographerormodel.id");
+				String email = rs.getString("photographerormodel.email");
+				String fullName = rs.getString("photographerormodel.fullName");
+				a = new PhotographerOrModel(email,fullName,token);
+				a.setId(id);
 			}
 			return a;
 		} catch(SQLException e) {

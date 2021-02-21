@@ -7,7 +7,6 @@ import java.sql.SQLException;
 
 import nhom1.connection.ConnectionClass;
 import nhom1.model.PhotographerOrModel;
-import nhom1.ultility.NormalUserQuery;
 import nhom1.ultility.PhotoOrModelQuery;
 
 public class UserPOMRegisterDAO {
@@ -27,6 +26,7 @@ public class UserPOMRegisterDAO {
 			preparedStmt.setString(5, pom.getPhone());
 			preparedStmt.setString(6, pom.getTcc());
 			preparedStmt.setString(7, pom.getRole());
+			preparedStmt.setString(8, pom.getTokenEmail());
 			preparedStmt.execute();
 			return true;
 		} catch (SQLException e) {
@@ -77,6 +77,7 @@ public class UserPOMRegisterDAO {
 			}
 		}
 	}
+	
 
 
 }
