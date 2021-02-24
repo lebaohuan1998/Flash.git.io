@@ -26,14 +26,14 @@ $(document).ready(
 			},
 			messages: {
 				username:{
-					required: "Please enter email !",
-					maxlength: "Max length is 50 charaters",
-					email: "Enter email follow xxx@cc"
+					required: "Nhập email!",
+					maxlength: "Tối đa 50 ký tự",
+					email: "Nhập mail theo định dạng"
 				},
 				password:{
-					required: "Please enter password ",
-                    maxlength: "Max length is 16 charaters",
-                    minlength: "Min lenght is 8 charaters"
+					required: "Nhập mật khẩu! ",
+                    maxlength: "Tối đa 16 ký tự",
+                    minlength: "Tối thiểu 8 ký tự"
 				},
 
 			},

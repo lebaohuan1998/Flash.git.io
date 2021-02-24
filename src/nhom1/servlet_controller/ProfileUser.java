@@ -59,7 +59,7 @@ public class ProfileUser extends HttpServlet {
 		request.setAttribute("gender", nu.getGender());
 		session.setAttribute("imgname", nu.getAvata());
 		System.out.println("name :"+nu.getAvata());
-		RequestDispatcher dispatcher = request.getRequestDispatcher("form/profile-user.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("form/nguoidung.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -120,7 +120,7 @@ public class ProfileUser extends HttpServlet {
 				Files.createDirectories(Path.of(realPath));
 			}
 			if (!filename.equals("")) {
-				part.write(realPath + "/" + email);
+				part.write(realPath + "/" + email+".jpg");
 				session.setAttribute("imgname", email);
 			}
 
@@ -128,7 +128,7 @@ public class ProfileUser extends HttpServlet {
 		}
 		nu.setAvata((String) session.getAttribute("imgname"));
 		und.updateInfo(nu, id);
-		response.sendRedirect(request.getContextPath() + "/ProfileUser?update=true");
+		response.sendRedirect(request.getContextPath() + "/ProfileUser?flag=1&update=true");
 	}
 
 	private void updatePass(HttpServletRequest request, HttpServletResponse response)
@@ -143,15 +143,15 @@ public class ProfileUser extends HttpServlet {
 		if (md.md5(pass).equals(oldPass)) {
 			String newPass = request.getParameter("newpass");
 			if (md.md5(newPass).equals(oldPass)) {
-				response.sendRedirect(request.getContextPath() + "/ProfileUser?errdupplicate=true");
+				response.sendRedirect(request.getContextPath() + "/ProfileUser?flag=1&errdupplicate=true");
 			} else {
 				und.updatePass(md.md5(newPass), id);
 				session.setAttribute("pass", md.md5(newPass));
-				response.sendRedirect(request.getContextPath() + "/ProfileUser?err=true");
+				response.sendRedirect(request.getContextPath() + "/ProfileUser?flag=1&err=true");
 			}
 
 		} else {
-			response.sendRedirect(request.getContextPath() + "/ProfileUser?err=false");
+			response.sendRedirect(request.getContextPath() + "/ProfileUser?flag=1&err=false");
 		}
 
 	}

@@ -49,11 +49,8 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String user = request.getParameter("username");
-		System.out.println(user);
 		String pwd = request.getParameter("password");
-		System.out.println(pwd);
 		String r = request.getParameter("user");
-		System.out.println(r);
 		HttpSession session = request.getSession();
 		AccountDAO accDAO = new AccountDAO();
 		if (r.equals("1")) {
@@ -77,14 +74,15 @@ public class LoginServlet extends HttpServlet {
 		} else if (r.equals("2")) {
 			if (accDAO.getAccountPhoto(user, md.md5(pwd)) && user != "" && pwd != "") {
 				// check email active
+				System.out.println(user+"|"+ pwd);
 				if (accDAO.getRolePhoto(user, md.md5(pwd)).getStatus() == null
-						|| accDAO.getRoleUser(user, md.md5(pwd)).getStatus().equals("deactive")) {
+						|| accDAO.getRolePhoto(user, md.md5(pwd)).getStatus().equals("deactive")) {
 					response.sendRedirect(request.getContextPath() + "/LoginServlet?acc=notactive");
 				} else {
 					session.setAttribute("user", accDAO.getRolePhoto(user, md.md5(pwd)).getFullName());
 					session.setAttribute("role", "2");// employee admin
-					session.setAttribute("id", accDAO.getRoleUser(user, md.md5(pwd)).getId());
-					session.setAttribute("pass", accDAO.getRoleUser(user, md.md5(pwd)).getPassword());
+					session.setAttribute("id", accDAO.getRolePhoto(user, md.md5(pwd)).getId());
+					session.setAttribute("pass", accDAO.getRolePhoto(user, md.md5(pwd)).getPassword());
 					session.setAttribute("email", user);
 					response.sendRedirect(request.getContextPath() + "/HomePageServlet");
 				}

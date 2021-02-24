@@ -4,18 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 import nhom1.connection.ConnectionClass;
 import nhom1.model.Account;
-import nhom1.model.Car;
 import nhom1.model.NormalUser;
 import nhom1.model.PhotographerOrModel;
 import nhom1.ultility.AccountQuery;
-import nhom1.ultility.BookingOfficeQuery;
-import nhom1.ultility.CarQuery;
-
 public class AccountDAO {
 	private Connection connection;
 	private PreparedStatement preparedStmt;
@@ -89,7 +82,7 @@ public class AccountDAO {
 				String fullName = rs.getString("photographerormodel.fullName");
 				String password = rs.getString("photographerormodel.password");
 				int role = rs.getInt("photographerormodel.role");
-				String status= rs.getString("users.status");
+				String status= rs.getString("photographerormodel.status");
 				a = new Account(id, username, password,fullName, role);
 				a.setStatus(status);
 			}

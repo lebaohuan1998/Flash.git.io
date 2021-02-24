@@ -22,7 +22,13 @@
     <nav class="navbar navbar-expand-xl bg-dark sticky-top ">
         <a class="navbar-brand mr-5" href="${pageContext.request.contextPath}/HomePageServlet"><img src="form/pic/logo.png" class="" height="60px"></a>
     </nav>
-    <div class="container-fluid bg-light ">
+    <div class="bg-light">
+    <div class="container-fluid  ">
+      <c:if test="${param.err =='false'}">
+		<div class="alert alert-warning">
+			<strong>Không thành công</strong> Email đã tồn tại.
+		</div>
+	</c:if>
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="form-block mx-auto">
@@ -37,11 +43,6 @@
                    <div class="form-group ">
                             <label for="email">Email(*)</label>
                             <input type="text" id="email" name="email" class="form-control col" placeholder="Nhập email">
-                            <c:choose>
-              					<c:when test="${param.err =='false' }">
-                    					 <p id="emaildupplicate" class="alert alert-danger p-1 my-1"> Email đã tồn tại </p>
-              					</c:when>
-              				</c:choose>
                    </div>
                     <div class="form-group">
                         <label class="label">Họ và Tên(*)</label>
@@ -80,7 +81,11 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
  <%@ include file="form/include/footer.jsp"%>
+ </div>
   <script src="${pageContext.request.contextPath}/public/js/validate/registerphoto.js"></script>
 
 </body>

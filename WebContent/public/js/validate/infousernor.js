@@ -35,21 +35,21 @@ $(document).ready(
 			messages: {
 				
                 user:{
-                    required: "Please enter name!",
-                    maxlength: "max length is 50 charaters"
+                    required: "Tên không được để trống!",
+                    maxlength: "Tên không được quá 50 chữ cái"
                     
                 },
                 dob:{
 					required: "Chọn ngày sinh",
 				},
                 phone:{
-                    required: "please enter phone",
-                    minlength: "phone number is 10 digits",
-					maxlength: "phone number is 10 digits"
+                    required: "Nhập số điện thoại",
+                    minlength: "Số điện thoại gồm 10 số",
+					maxlength: "Số điện thoại gồm 10 số"
 				},
 				address:{
-					required: "Please enter địa chỉ",
-					maxlength: "max length is 50 charaters",
+					required: "Nhập địa chỉ",
+					maxlength: "Địa chỉ không  được quá 50 chữ cái",
 				},
                 
 				
@@ -88,20 +88,20 @@ $(document).ready(
 			messages: {
 				
                oldpass:{
-					required: "Please enter password ",
-                    maxlength: "Max length is 16 charaters",
-                    minlength: "Min lenght is 8 charaters"
+					required: "Nhập mật khẩu cũ ",
+                    maxlength: "Mât khẩu tối đa 16 chữ cái",
+                    minlength: "Mật khẩu tối thiểu 8 chữ cái"
                 },
                  newpass:{
-					required: "Please enter password ",
-                    maxlength: "Max length is 16 charaters",
-                    minlength: "Min lenght is 8 charaters"
+					required: "Nhập mật khẩu mới ",
+                    maxlength: "Mât khẩu tối đa 16 chữ cái",
+                    minlength: "Mật khẩu tối thiểu 8 chữ cái"
                 },
                 renewpass:{
-                    equalTo: "re-password not same password",
-					required: "Please enter password ",
-                    maxlength: "Max length is 16 charaters",
-                    minlength: "Min lenght is 8 charaters"
+                    equalTo: "Nhập giống mật khẩu trên",
+					required: "Nhập lại mật khẩu ",
+                    maxlength: "Mât khẩu tối đa 16 chữ cái",
+                    minlength: "Mật khẩu tối thiểu 8 chữ cái"
                 },
 			},
 		});

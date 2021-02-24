@@ -1,16 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<div class="border-top border-right border-dark     col-2">
-        <br>
-		<div class="">
-		<a class="dropdown-item btn  " href="#">Thông Tin tài Khoản</a> 
-		<br>
-		<a class="dropdown-item btn "
-			href="#">Album Yêu Thích</a> 
+<div class="   border-top border-right col-3  bg-light form-block">
+	<div class="">
+		<c:if test="${role =='1'}">
+			<a class="dropdown-item btn  "
+				href="${pageContext.request.contextPath}/ProfileUser?flag=1">Thông
+				Tin tài Khoản</a>
 			<br>
-		<a class="dropdown-item btn " href="#">Thợ Chụp Ảnh Yêu Thích</a> 
+			<a class="dropdown-item btn "
+				href="${pageContext.request.contextPath}/ProfileUser?flag=2">Album
+				Yêu Thích</a>
 			<br>
-		<a class="dropdown-item btn " href="#">Trang Chủ</a>
-		<br>
-		</div>
+			<a class="dropdown-item btn "
+				href="${pageContext.request.contextPath}/ProfileUser?flag=3">Thợ
+				Chụp Ảnh Yêu Thích</a>
+			<br>
+			<a class="dropdown-item btn "
+				href="${pageContext.request.contextPath}/ProfileUser?flag=4">Trang
+				Chủ</a>
+		</c:if>
+		<c:if test="${role =='2'}">
+			<a class="dropdown-item btn  "
+				href="${pageContext.request.contextPath}/ProfilePhoto?flag=1">Thông
+				Tin tài Khoản</a>
+			<br>
+			<a class="dropdown-item btn "
+				href="${pageContext.request.contextPath}/ProfilePhoto?flag=2">Album
+				Yêu Thích</a>
+			<br>
+			<a class="dropdown-item btn "
+				href="${pageContext.request.contextPath}/ProfilePhoto?flag=3">Thợ
+				Chụp Ảnh Yêu Thích</a>
+			<br>
+			<a class="dropdown-item btn "
+				href="${pageContext.request.contextPath}/ProfilePhoto?flag=4">Trang
+				Chủ</a>
+		</c:if>
+	</div>
 </div>

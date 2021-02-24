@@ -7,6 +7,7 @@ public interface NormalUserQuery {
 	public static final String UPDATE_USERNORMAL = "UPDATE users SET users.fullName=?, users.bod=?, users.address=?, users.phone=?, users.gender=?, users.avatar=?  WHERE users.id=?";
 	public static final String UPDATE_PASSWORD = "UPDATE users SET users.password =? WHERE users.id=?";
 	public static final String UPDATE_ACTIVEMAIL = "UPDATE users SET users.status=? WHERE users.id=?";
+	public static final String QUEN_PASSWORD = "UPDATE users SET users.password =? WHERE users.email=?";
 
 
 }

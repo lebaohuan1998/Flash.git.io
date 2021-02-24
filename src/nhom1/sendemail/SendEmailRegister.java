@@ -43,4 +43,34 @@ public class SendEmailRegister {
 			
 		}
 	}
+	public void sendEmailPass(HttpServletRequest request, HttpServletResponse response,String email,String newPass) {
+		final String username = "flashteam1998@gmail.com";
+		final String pass = "Loc666666";
+		Properties pop = new Properties(); 
+		pop.put("mail.smtp.host", "smtp.gmail.com");
+		pop.put("mail.smtp.port", "587");
+		pop.put("mail.smtp.auth", "true");
+		pop.put("mail.smtp.starttls.enable", "true");
+		Session session = Session.getInstance(pop, new Authenticator() {
+			protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
+				return new javax.mail.PasswordAuthentication(username, pass);
+			}
+		});
+		//
+		
+		try {
+			Message mess = new MimeMessage(session);
+			mess.setFrom(new InternetAddress(username));
+			mess.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+			mess.setSubject("MẬT KHẨU MỚI");
+			mess.setText("Chào mừng bạn đến với Flash.\n"
+					+ "		Mật khẩu mới của bạn hiện tại là:"+newPass+"\n"
+					+ "		Hãy thay đổi mật khẩu trong phần cập nhật thông tin để tránh làm lộ thông tin tài khoản.");
+			Transport.send(mess);
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("huan");
+			
+		}
+	}
 }

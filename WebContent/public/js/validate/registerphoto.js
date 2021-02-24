@@ -25,6 +25,7 @@ $(document).ready(
 					maxlength: 50,
 				},
 				nghedanh:{
+					required: true,
 					maxlength: 50,
 				},
 				password:{
@@ -43,7 +44,7 @@ $(document).ready(
                     minlength: 10,
 					maxlength: 10,
 				},
-				sothecancuoc:{
+				thecancuoc:{
 					required: true,
                     minlength: 12,
 					maxlength: 12,
@@ -51,38 +52,38 @@ $(document).ready(
 			},
 			messages: {
 				email:{
-					required: "Please enter email !",
-					maxlength: "Max length is 50 charaters",
-					email: "Enter email follow xxx@cc"
+					required: "Nhập email !",
+					maxlength: "Tối đa 50 ký tự",
+					email: "Nhập mail theo định dạng"
                 },
                 fullname:{
-                    required: "Please enter name!",
-                    maxlength: "max length is 50 charaters"
-                    
+                    required: "Nhập họ và tên!",
+                    maxlength: "Tối đa 50 ký tự"
                 },
                 nghedanh:{
-					maxlength: "max length is 50 charaters",
+                	required: "Nhập họ và tên!",
+					maxlength: "Tối đa 50 ký tự"
 				},
 				password:{
-					required: "Please enter password ",
-                    maxlength: "Max length is 16 charaters",
-                    minlength: "Min lenght is 8 charaters"
+					required: "Nhập mật khẩu",
+                    maxlength: "Tối đa 16 ký tự",
+                    minlength: "Tối thiểu 8 ký tự"
                 },
                 repassword:{
-                    equalTo: "re-password not same password",
-					required: "Please enter password ",
-                    maxlength: "Max length is 16 charaters",
-                    minlength: "Min lenght is 8 charaters"
+                    equalTo: "Nhập giống mật khẩu trên",
+					required: "Nhập mật khẩu",
+                    maxlength: "Tối đa 16 ký tự",
+                    minlength: "Tối thiểu 8 ký tự"
                 },
                 phone:{
-                    required: "please enter phone",
-                    minlength: "phone number is 10 digits",
-					maxlength: "phone number is 10 digits"
+                    required: "Nhập số điện thoại",
+                    minlength: "Gồm 10 số",
+					maxlength: "Gồm 10 số"
 				},
-				sothecancuoc:{
-					required: "please enter so the can cuoc",
-                    minlength: "phone number is 12 digits",
-					maxlength: "phone number is 12 digits",
+				thecancuoc:{
+					required: "Nhập số thẻ căn cước",
+                    minlength: "Gồm 12 số",
+					maxlength: "Gồm 12 số",
 				}
                 
 				
