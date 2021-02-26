@@ -61,12 +61,16 @@
                       <input type="password" class="form-control" name="repassword" placeholder="nhập lại mật khẩu" />
                     </div>
                     <div class="form-group">
-                      <label for="code" class="label">SĐT(*)</label>
-                      <input type="text" class="form-control" id="code" name="phone" placeholder="Số điện thoại">
+                      <label class="label">SĐT(*)</label>
+                      <input type="text" class="form-control"  name="phone" placeholder="Số điện thoại">
+                  </div>
+                   <div class="form-group">
+                      <label class="label">Địa chỉ theo CMT/CCCD(*)</label>
+                      <input type="text" class="form-control"  name="address" placeholder="địa chỉ">
                   </div>
                   <div class="form-group">
-                      <label for="code" class="label">Số Thẻ Căn Cước(*)</label>
-                      <input type="text" class="form-control" id="tcc" name="thecancuoc" placeholder="Số thẻ căn cước">
+                      <label  class="label">Số Thẻ Căn Cước(*)</label>
+                      <input type="text" class="form-control"  name="thecancuoc" placeholder="Số thẻ căn cước">
                   </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-info btn-block my-3">Tạo tài khoản</button>

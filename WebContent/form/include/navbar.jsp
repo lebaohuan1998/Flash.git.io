@@ -35,6 +35,9 @@
 								<a class="dropdown-item btn "
 									href="${pageContext.request.contextPath}/ProfilePhoto?flag=1"><i
 									class="fa fa-info mr-1"></i>Thông tin cá nhân</a>
+								<a class="dropdown-item btn "
+									href="${pageContext.request.contextPath}/GoiDichVu_LichBan?flag=3"><i
+									class="fa fa-info mr-1"></i>Gói dịch vụ, lịch bận</a>
 								<a class="dropdown-item btn"
 									href="${pageContext.request.contextPath}/LogOut"><i
 									class="fas fa-sign-out-alt mr-1"></i>Đăng xuất</a>

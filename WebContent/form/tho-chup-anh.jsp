@@ -8,7 +8,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><c:if test="${param.flag =='1'}">
 		Quản lý hồ sơ
-	</c:if> <c:if test="${param.flag !='1'}">
+	</c:if> <c:if test="${param.flag =='3'}">
+		Gói dịch vụ -Lịch bận
+	</c:if><c:if test="${param.flag !='1'}">
 		Quản lý tài khoản
 	</c:if></title>
 <script
@@ -22,18 +24,45 @@
 <link rel="stylesheet"
 	href="public/fontawesome-free-5.15.1-web/css/all.min.css">
 <link rel="stylesheet" href="public/css/style.css">
+
 <link rel="stylesheet" href="public/css/csshomepage.css">
 <link rel="stylesheet" href="public/css/bootstrap.min.css">
+
 
 </head>
 
 <body>
 	<%@ include file="include/navbar.jsp"%>
 	<div class="bg-light ">
-		<c:if test="${param.update =='true'}">
+		<c:if test="${param.updateShow =='true'}">
 			<div class="alert alert-success in">
 				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				<strong>Thành công!</strong> bạn đã cập nhật thông tin.
+				<strong>Thành công!</strong> Bạn đã cập nhật thông tin.
+			</div>
+		</c:if>
+		<c:if test="${param.updateInfo =='true'}">
+			<div class="alert alert-success in">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Thành công!</strong> Bạn đã cập nhật thông tin.
+			</div>
+		</c:if>
+		<c:if test="${param.updateInfor =='false'}">
+			<div class="alert alert-warning">
+				<strong>Không thành công</strong> Bạn chưa cập nhật thành công thông
+				tin cá nhân
+			</div>
+		</c:if>
+		<c:if test="${param.updatecmt =='true'}">
+			<div class="alert alert-success in">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Thành công!</strong> Bạn đã gửi ảnh xác minh, đợi chúng tôi
+				xác minh.
+			</div>
+		</c:if>
+		<c:if test="${param.updatecmt =='false'}">
+			<div class="alert alert-warning">
+				<strong>Không thành công</strong> Bạn phải gửi đồng thời cả 3 ảnh để
+				chúng tôi xác minh
 			</div>
 		</c:if>
 		<c:if test="${param.err =='true'}">
@@ -60,8 +89,11 @@
 			<c:if test="${param.flag =='1'}">
 				<%@ include file="quanlihoso-photo.jsp"%>
 			</c:if>
-			<c:if test="${para.flag =='2'}">
-
+			<c:if test="${param.flag =='2'}">
+				<%@ include file="taovasuagoidichvu-photo.jsp"%>
+			</c:if>
+			<c:if test="${param.flag =='3'}">
+				<%@ include file="goidichvu-lichban-photo.jsp"%>
 			</c:if>
 		</div>
 		<br> <br> <br>
@@ -69,7 +101,7 @@
 
 	<%@ include file="include/footer.jsp"%>
 	<script
-		src="${pageContext.request.contextPath}/public/js/validate/infousernor.js"></script>
+		src="${pageContext.request.contextPath}/public/js/validate/infophoto.js"></script>
 </body>
 
 </html>

@@ -117,7 +117,11 @@
 										aria-labelledby="dropdownMenuLink">
 										<a class="dropdown-item btn "
 											href="${pageContext.request.contextPath}/ProfilePhoto?flag=1"><i
-											class="fa fa-info mr-1"></i>Thông tin cá nhân</a> <a
+											class="fa fa-info mr-1"></i>Thông tin cá nhân</a>
+											<a class="dropdown-item btn "
+											href="${pageContext.request.contextPath}/GoiDichVu_LichBan?flag=3"><i
+											class="fa fa-info mr-1"></i>Gói dịch vụ, lịch bận</a>
+											 <a
 											class="dropdown-item btn"
 											href="${pageContext.request.contextPath}/LogOut"><i
 											class="fas fa-sign-out-alt mr-1"></i>Đăng xuất</a>
@@ -153,12 +157,136 @@
 								<div class="   ">
 									<div class="dropdown mr-2 aa ">
 										<select class="form-control  form-control-lg mr-2 select-bar">
-											<option class="" selected>Tất cả các địa điểm</option>
-											<option>Hà Nội</option>
-											<option>Nam Định</option>
-											<option>Ba vì</option>
-											<option>Hải Phòng</option>
-											<option>Hồ Chí Minh</option>
+											<option ${workplace=='An Giang'? 'selected="selected"' : ''}>An
+										Giang</option>
+									<option
+										${workplace=='Bà Rịa-Vũng Tàu'? 'selected="selected"' : ''}>Bà
+										Rịa-Vũng Tàu</option>
+									<option ${workplace=='Bạc Liêu'? 'selected="selected"' : ''}>Bạc
+										Liêu</option>
+									<option ${workplace=='Bắc Kạn'? 'selected="selected"' : ''}>Bắc
+										Kạn</option>
+									<option ${workplace=='Bắc Giang'? 'selected="selected"' : ''}>Bắc
+										Giang</option>
+									<option ${workplace=='Bắc Ninh'? 'selected="selected"' : ''}>Bắc
+										Ninh</option>
+									<option ${workplace=='Bến Tre'? 'selected="selected"' : ''}>Bến
+										Tre</option>
+									<option ${workplace=='Bình Dương'? 'selected="selected"' : ''}>Bình
+										Dương</option>
+									<option ${workplace=='>Bình Định'? 'selected="selected"' : ''}>Bình
+										Định</option>
+									<option ${workplace=='Bình Thuận'? 'selected="selected"' : ''}>Bình
+										Phước</option>
+									<option ${workplace=='Bình Dương'? 'selected="selected"' : ''}>Bình
+										Thuận</option>
+									<option ${workplace=='Cà Mau'? 'selected="selected"' : ''}>Cà
+										Mau</option>
+									<option ${workplace=='Cao Bằng'? 'selected="selected"' : ''}>Cao
+										Bằng</option>
+									<option ${workplace=='Cần Thơ'? 'selected="selected"' : ''}>Cần
+										Thơ</option>
+									<option ${workplace=='Đà Nẵng'? 'selected="selected"' : ''}>Đà
+										Nẵng</option>
+									<option ${workplace=='Đắk Lắk'? 'selected="selected"' : ''}>Đắk
+										Lắk</option>
+									<option ${workplace=='Đắk Nông'? 'selected="selected"' : ''}>Đắk
+										Nông</option>
+									<option ${workplace=='Điện Biên'? 'selected="selected"' : ''}>Điện
+										Biên</option>
+									<option ${workplace=='Đồng Nai'? 'selected="selected"' : ''}>Đồng
+										Nai</option>
+									<option ${workplace=='Đồng Tháp'? 'selected="selected"' : ''}>Đồng
+										Tháp</option>
+									<option ${workplace=='Gia Lai'? 'selected="selected"' : ''}>Gia
+										Lai</option>
+									<option ${workplace=='Hà Giang'? 'selected="selected"' : ''}>Hà
+										Giang</option>
+									<option ${workplace=='Hà Nam'? 'selected="selected"' : ''}>Hà
+										Nam</option>
+									<option ${workplace=='Hà Nội'? 'selected="selected"' : ''}>Hà
+										Nội</option>
+									<option ${workplace=='Hà Tây'? 'selected="selected"' : ''}>Hà
+										Tây</option>
+									<option ${workplace=='Hà Tĩnh'? 'selected="selected"' : ''}>Hà
+										Tĩnh</option>
+									<option ${workplace=='Hải Dương'? 'selected="selected"' : ''}>Hải
+										Dương</option>
+									<option ${workplace=='Hải Phòng'? 'selected="selected"' : ''}>Hải
+										Phòng</option>
+									<option ${workplace=='Hòa Bình'? 'selected="selected"' : ''}>Hòa
+										Bình</option>
+									<option ${workplace=='Hồ Chí Minh'? 'selected="selected"' : ''}>Hồ
+										Chí Minh</option>
+									<option ${workplace=='Hậu Giang'? 'selected="selected"' : ''}>Hậu
+										Giang</option>
+									<option ${workplace=='Hưng Yên'? 'selected="selected"' : ''}>Hưng
+										Yên</option>
+									<option ${workplace=='Khánh Hòa'? 'selected="selected"' : ''}>Khánh
+										Hòa</option>
+									<option ${workplace=='Kiên Giang'? 'selected="selected"' : ''}>Kiên
+										Giang</option>
+									<option ${workplace=='Kon Tum'? 'selected="selected"' : ''}>Kon
+										Tum</option>
+									<option ${workplace=='Lai Châu'? 'selected="selected"' : ''}>Lai
+										Châu</option>
+									<option ${workplace=='Lào Cai'? 'selected="selected"' : ''}>Lào
+										Cai</option>
+									<option ${workplace=='Lạng Sơn'? 'selected="selected"' : ''}>Lạng
+										Sơn</option>
+									<option ${workplace=='Lâm Đồng'? 'selected="selected"' : ''}>Lâm
+										Đồng</option>
+									<option ${workplace=='Long An'? 'selected="selected"' : ''}>Long
+										An</option>
+									<option ${workplace=='Nam Định'? 'selected="selected"' : ''}>Nam
+										Định</option>
+									<option ${workplace=='Nghệ An'? 'selected="selected"' : ''}>Nghệ
+										An</option>
+									<option ${workplace=='Ninh Bình'? 'selected="selected"' : ''}>Ninh
+										Bình</option>
+									<option ${workplace=='Ninh Thuận'? 'selected="selected"' : ''}>Ninh
+										Thuận</option>
+									<option ${workplace=='Phú Thọ'? 'selected="selected"' : ''}>Phú
+										Thọ</option>
+									<option ${workplace=='Phú Yên'? 'selected="selected"' : ''}>Phú
+										Yên</option>
+									<option ${workplace=='Quảng Bình'? 'selected="selected"' : ''}>Quảng
+										Bình</option>
+									<option ${workplace=='Quảng Nam'? 'selected="selected"' : ''}>Quảng
+										Nam</option>
+									<option ${workplace=='Quảng Ngãi'? 'selected="selected"' : ''}>Quảng
+										Ngãi</option>
+									<option ${workplace=='Quảng Ninh'? 'selected="selected"' : ''}>Quảng
+										Ninh</option>
+									<option ${workplace=='Quảng Trị'? 'selected="selected"' : ''}>Quảng
+										Trị</option>
+									<option ${workplace=='Sóc Trăng'? 'selected="selected"' : ''}>Sóc
+										Trăng</option>
+									<option ${workplace=='Sơn La'? 'selected="selected"' : ''}>Sơn
+										La</option>
+									<option ${workplace=='Tây Ninh'? 'selected="selected"' : ''}>Tây
+										Ninh</option>
+									<option ${workplace=='Thái Bình'? 'selected="selected"' : ''}>Thái
+										Bình</option>
+									<option ${workplace=='Thái Nguyên'? 'selected="selected"' : ''}>Thái
+										Nguyên</option>
+									<option ${workplace=='Thanh Hóa'? 'selected="selected"' : ''}>Thanh
+										Hóa</option>
+									<option
+										${workplace=='Thừa Thiên – Huế'? 'selected="selected"' : ''}>Thừa
+										Thiên – Huế</option>
+									<option ${workplace=='Tiền Giang'? 'selected="selected"' : ''}>Tiền
+										Giang</option>
+									<option ${workplace=='Trà Vinh'? 'selected="selected"' : ''}>Trà
+										Vinh</option>
+									<option ${workplace=='Tuyên Quang'? 'selected="selected"' : ''}>Tuyên
+										Quang</option>
+									<option ${workplace=='Vĩnh Long'? 'selected="selected"' : ''}>Vĩnh
+										Long</option>
+									<option ${workplace=='Vĩnh Phúc'? 'selected="selected"' : ''}>Vĩnh
+										Phúc</option>
+									<option ${workplace=='Yên Bái'? 'selected="selected"' : ''}>Yên
+										Bái</option>
 										</select>
 									</div>
 									<div class="dropdown mr-2 aa">
@@ -254,208 +382,37 @@
 					<!--1 thang-->
 					<div class="input-group  ">
 						<!--tháº±ng 1-->
+						<c:forEach items="${listPhotoView}" var="photo">
+							<div class=" bgimg col-3 col-photo bg-dark canle ">
+								<div class="hover hover-1 bgimg1  ">
+								<c:if test="${photo.avata ==null}">
+								<img class="" src="images/anhchandung.PNG" alt="">
+								</c:if>
+								<c:if test="${photo.avata !=null}">
+								<img class="" src="images/${photo.email}2/${photo.avata}" alt="">
+								</c:if>
+									<div class="hover-overlay"></div>
+									<div class="hover-1-noidung  px-3 py-0  ">
+										<h3 class="hover-1-tieude text-uppercase font-weight-bold ">
+											<span class="font-weight-light"></span>${photo.ngheDanh}
+										</h3>
+										<h5 class="hover-1-trichdan font-weight-bold  mb-0">
+										<span class="font-weight-light mr-2 text-primary">Hoạt Động:</span>${photo.noilamviec}</h5>
 
-						<div class=" bgimg col-3 col-photo bg-dark canle ">
-							<div class="hover hover-1 bgimg1  ">
-								<img class="" src="form/pic/theloai/chandung1.jpg" alt="">
-								<div class="hover-overlay"></div>
-								<div class="hover-1-noidung  px-3 py-0  ">
-									<h3 class="hover-1-tieude text-uppercase font-weight-bold ">
-										<span class="font-weight-light">Anh </span>Lê Bảo Huân
-									</h3>
-									<p class="hover-1-trichdan font-weight-light mb-0">20 năm
-										trong ngành chụp ảnh</p>
-
-									<div class=" hover-1-trichdan font-weight-light mb-0">
-										<span class="fa fa-star star"></span> <span
-											class="fa fa-star star"></span> <span class="fa fa-star star"></span>
-										<span class="fa fa-star star"></span> <span
-											class="fa fa-star star"></span> <a
-											class="btn btn-outline-light" href="#">Đặt ngay</a>
+										<div class=" hover-1-trichdan font-weight-light  mb-0">
+											<span class="fa fa-star star"></span> <span
+												class="fa fa-star star"></span> <span
+												class="fa fa-star star"></span> <span
+												class="fa fa-star star"></span> <span
+												class="fa fa-star star"></span> <a
+												class="btn btn-outline-light" href="#">Đặt ngay</a>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						</c:forEach>
 
-						<!--háº¿t tháº±ng 1-->
-						<!--tháº±ng 1-->
-
-						<div class=" bgimg col-3 col-photo bg-dark canle ">
-							<div class="hover hover-1 bgimg1  ">
-								<img class="" src="form/pic/theloai/chandung1.jpg" alt="">
-								<div class="hover-overlay"></div>
-								<div class="hover-1-noidung  px-3 py-0  ">
-									<h3 class="hover-1-tieude text-uppercase font-weight-bold ">
-										<span class="font-weight-light">Anh </span>Lê Bảo Huân
-									</h3>
-									<p class="hover-1-trichdan font-weight-light mb-0">20 năm
-										trong ngành chụp ảnh</p>
-
-									<div class=" hover-1-trichdan font-weight-light mb-0">
-										<span class="fa fa-star star"></span> <span
-											class="fa fa-star star"></span> <span class="fa fa-star star"></span>
-										<span class="fa fa-star star"></span> <span
-											class="fa fa-star star"></span> <a
-											class="btn btn-outline-light" href="#">Đặt ngay</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!--háº¿t tháº±ng 1-->
-						<!--tháº±ng 1-->
-
-						<div class=" bgimg col-3 col-photo bg-dark canle ">
-							<div class="hover hover-1 bgimg1  ">
-								<img class="" src="form/pic/theloai/chandung1.jpg" alt="">
-								<div class="hover-overlay"></div>
-								<div class="hover-1-noidung  px-3 py-0  ">
-									<h3 class="hover-1-tieude text-uppercase font-weight-bold ">
-										<span class="font-weight-light">Anh </span>Lê Bảo Huân
-									</h3>
-									<p class="hover-1-trichdan font-weight-light mb-0">20 năm
-										trong ngành chụp ảnh</p>
-
-									<div class=" hover-1-trichdan font-weight-light mb-0">
-										<span class="fa fa-star star"></span> <span
-											class="fa fa-star star"></span> <span class="fa fa-star star"></span>
-										<span class="fa fa-star star"></span> <span
-											class="fa fa-star star"></span> <a
-											class="btn btn-outline-light" href="#">Đặt ngay</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!--háº¿t tháº±ng 1-->
-						<!--tháº±ng 1-->
-
-						<div class=" bgimg col-3 col-photo bg-dark canle ">
-							<div class="hover hover-1 bgimg1  ">
-								<img class="" src="form/pic/theloai/chandung1.jpg" alt="">
-								<div class="hover-overlay"></div>
-								<div class="hover-1-noidung  px-3 py-0  ">
-									<h3 class="hover-1-tieude text-uppercase font-weight-bold ">
-										<span class="font-weight-light">Anh </span>Lê Bảo Huân
-									</h3>
-									<p class="hover-1-trichdan font-weight-light mb-0">20 năm
-										trong ngành chụp ảnh</p>
-
-									<div class=" hover-1-trichdan font-weight-light mb-0">
-										<span class="fa fa-star star"></span> <span
-											class="fa fa-star star"></span> <span class="fa fa-star star"></span>
-										<span class="fa fa-star star"></span> <span
-											class="fa fa-star star"></span> <a
-											class="btn btn-outline-light" href="#">Đặt ngay</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!--háº¿t tháº±ng 1-->
-						<!--tháº±ng 1-->
-
-						<div class=" bgimg col-3 col-photo bg-dark canle ">
-							<div class="hover hover-1 bgimg1  ">
-								<img class="" src="form/pic/theloai/chandung1.jpg" alt="">
-								<div class="hover-overlay"></div>
-								<div class="hover-1-noidung  px-3 py-0  ">
-									<h3 class="hover-1-tieude text-uppercase font-weight-bold ">
-										<span class="font-weight-light">Anh </span>Lê Bảo Huân
-									</h3>
-									<p class="hover-1-trichdan font-weight-light mb-0">20 năm
-										trong ngành chụp ảnh</p>
-
-									<div class=" hover-1-trichdan font-weight-light mb-0">
-										<span class="fa fa-star star"></span> <span
-											class="fa fa-star star"></span> <span class="fa fa-star star"></span>
-										<span class="fa fa-star star"></span> <span
-											class="fa fa-star star"></span> <a
-											class="btn btn-outline-light" href="#">Đặt ngay</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!--háº¿t tháº±ng 1-->
-						<!--tháº±ng 1-->
-
-						<div class=" bgimg col-3 col-photo bg-dark canle ">
-							<div class="hover hover-1 bgimg1  ">
-								<img class="" src="form/pic/theloai/chandung1.jpg" alt="">
-								<div class="hover-overlay"></div>
-								<div class="hover-1-noidung  px-3 py-0  ">
-									<h3 class="hover-1-tieude text-uppercase font-weight-bold ">
-										<span class="font-weight-light">Anh </span>Lê Bảo Huân
-									</h3>
-									<p class="hover-1-trichdan font-weight-light mb-0">20 năm
-										trong ngành chụp ảnh</p>
-
-									<div class=" hover-1-trichdan font-weight-light mb-0">
-										<span class="fa fa-star star"></span> <span
-											class="fa fa-star star"></span> <span class="fa fa-star star"></span>
-										<span class="fa fa-star star"></span> <span
-											class="fa fa-star star"></span> <a
-											class="btn btn-outline-light" href="#">Đặt ngay</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!--háº¿t tháº±ng 1-->
-						<!--tháº±ng 1-->
-
-						<div class=" bgimg col-3 col-photo bg-dark canle ">
-							<div class="hover hover-1 bgimg1  ">
-								<img class="" src="form/pic/theloai/chandung1.jpg" alt="">
-								<div class="hover-overlay"></div>
-								<div class="hover-1-noidung  px-3 py-0  ">
-									<h3 class="hover-1-tieude text-uppercase font-weight-bold ">
-										<span class="font-weight-light">Anh </span>Lê Bảo Huân
-									</h3>
-									<p class="hover-1-trichdan font-weight-light mb-0">20 năm
-										trong ngành chụp ảnh</p>
-
-									<div class=" hover-1-trichdan font-weight-light mb-0">
-										<span class="fa fa-star star"></span> <span
-											class="fa fa-star star"></span> <span class="fa fa-star star"></span>
-										<span class="fa fa-star star"></span> <span
-											class="fa fa-star star"></span> <a
-											class="btn btn-outline-light" href="#">Đặt ngay</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!--háº¿t tháº±ng 1-->
-						<!--tháº±ng 1-->
-
-						<div class=" bgimg col-3  bg-dark canle ">
-							<div class="hover hover-1 bgimg1  ">
-								<img class="" src="form/pic/theloai/chandung1.jpg" alt="">
-								<div class="hover-overlay"></div>
-								<div class="hover-1-noidung  px-3 py-0  ">
-									<h3 class="hover-1-tieude text-uppercase font-weight-bold ">
-										<span class="font-weight-light">Anh </span>Lê Bảo Huân
-									</h3>
-									<p class="hover-1-trichdan font-weight-light mb-0">20 năm
-										trong ngành chụp ảnh</p>
-
-									<div class=" hover-1-trichdan font-weight-light mb-0">
-										<span class="fa fa-star star"></span> <span
-											class="fa fa-star star"></span> <span class="fa fa-star star"></span>
-										<span class="fa fa-star star"></span> <span
-											class="fa fa-star star"></span> <a
-											class="btn btn-outline-light" href="#">Đặt ngay</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!--háº¿t tháº±ng 1-->
-
-
-
+						<!-- hết -->
 
 					</div>
 

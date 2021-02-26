@@ -15,7 +15,7 @@
 										alt="your image" height=130 width=190>
 								</c:if>
 								<c:if test="${imgname!=null}">
-									<img src="images/${email}/${imgname}.jpg" id="myImg" src="#"
+									<img src="images/${email}${role}/${imgname}" id="myImg" src="#"
 										alt="your image" height=130 width=190>
 								</c:if>
 

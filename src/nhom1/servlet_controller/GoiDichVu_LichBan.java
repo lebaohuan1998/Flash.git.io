@@ -9,20 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import nhom1.dao.HomePageDAO;
-
 /**
- * Servlet implementation class HomePageServlet
+ * Servlet implementation class GoiDichVu_LichBan
  */
-@WebServlet("/HomePageServlet")
-public class HomePageServlet extends HttpServlet {
+@WebServlet("/GoiDichVu_LichBan")
+public class GoiDichVu_LichBan extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private HomePageDAO hpd= new HomePageDAO();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HomePageServlet() {
+    public GoiDichVu_LichBan() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,9 +29,7 @@ public class HomePageServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setAttribute("listPhotoView", hpd.get8Photo());
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/home-page.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("form/tho-chup-anh.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -43,7 +38,7 @@ public class HomePageServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher rd = getServletContext().getRequestDispatcher("/home-page.jsp");
+		doGet(request, response);
 	}
 
 }

@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+.navbar{
+    height: 85px;
+    justify-content: left;
+}
+.bg-dark{
+    background-color: #343a40!important
+}
+.container-fluid{
+    height: 60px;
+    text-shadow: 5px 2px 4px grey;
+}
+img{
+    margin-top: -20px;
+}
+.display {
+    font-size: 42px;
+}
+button{
+    height: 30px;
+    width: 150px;
+    border-color: #343a40;
+    border-radius: 6px;
+}
+.left{
+    margin-left: 30px;
+    margin-top: 50px;
+}
+.form-outline input{
+   font-size: 16.5px;
+   width: 300px;
+}
+.form-outline button{
+    width: 140px;
+    float: right;
+}
+.navbar-tab a{
+    text-align: center;
+}
+.form-image img{
+    width: 200px;
+}
+.form-image{
+    margin-top: 50px;
+    text-align: center;
+}
+.group-info{
+    border-width: 3px;
+    border-style: solid;
+    width: 400px;
+    height: 300px;
+    margin-top: 50px;
+}
+.group-info-detail{
+    transform: translateX(10px) translateY(10px);
+}
+.group-info button{
+    width: 100px;
+}

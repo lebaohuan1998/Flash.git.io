@@ -1,6 +1,5 @@
 package nhom1.servlet_controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -94,6 +93,7 @@ public class ProfileUser extends HttpServlet {
 		HttpSession session = request.getSession();
 		int id = (Integer) session.getAttribute("id");
 		String email = (String) session.getAttribute("email");
+		String role = (String) session.getAttribute("role");
 		String name = request.getParameter("user");
 		String dob = request.getParameter("dob");
 		if (dob.equals("")) {
@@ -112,16 +112,16 @@ public class ProfileUser extends HttpServlet {
 		// image
 
 		Part part = request.getPart("file");
-		System.out.println("name1:"+request.getAttribute("file"));
+		System.out.println("name1:"+request.getPart("file"));
 		if (part != null) {
-			String realPath = request.getServletContext().getRealPath("/images/" + email);
+			String realPath = request.getServletContext().getRealPath("/images/" + email+role);
 			String filename = Path.of(part.getSubmittedFileName()).getFileName().toString();
 			if (!Files.exists(Path.of(realPath))) {
 				Files.createDirectories(Path.of(realPath));
 			}
 			if (!filename.equals("")) {
-				part.write(realPath + "/" + email+".jpg");
-				session.setAttribute("imgname", email);
+				part.write(realPath + "/" + "avata.jpg");
+				session.setAttribute("imgname", "avata.jpg");
 			}
 
 			System.out.println("name2:"+filename);

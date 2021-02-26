@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet Filter implementation class EmployeeAdmin
  */
-@WebFilter(urlPatterns = { "/EmployeeServlet","/ProfilePhoto"})
+@WebFilter(urlPatterns = { "/EmployeeServlet","/ProfilePhoto","/GoiDichVu_LichBan"})
 public class Photo implements Filter {
 
 	/**

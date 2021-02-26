@@ -34,6 +34,7 @@ $(document).ready(
                 },
                 phone:{
                     required: true,
+                    digits: true,
                     minlength: 10,
 					maxlength: 10,
 				},
@@ -61,6 +62,7 @@ $(document).ready(
                 },
                 phone:{
                     required: "Nhập số điện thoại",
+                    digits: "Ký tự là số",
                     minlength: "Gồm 10 số",
 					maxlength: "Gồm 10 số"
 				},

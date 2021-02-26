@@ -1,14 +1,37 @@
 /**
  * 
- */
-$(document).ready(
+ */$(document).ready(
 	function(){
 		$.validator.addMethod("notNumb", function(value){
 			var reg = /^\D*$/;
 			return value.trim().match(reg);
 		}, ""
 		);
-		$("#update-form").validate({
+		$("#show").validate({
+			errorElement: 'div',
+			errorPlacement: function(label, element) {
+				label.addClass('alert alert-danger p-1 my-1');	
+				label.insertAfter(element);
+			},
+			rules:{
+               nghedanh:{
+					required: true,
+					maxlength: 50,
+				},
+				
+			},
+			messages: {
+				
+                nghedanh:{
+                	required: "Nhập Nghệ danh!",
+					maxlength: "Tối đa 50 ký tự"
+				},
+				
+				
+			},
+		});
+		/*----------------------*/
+		$("#updateinfo-form").validate({
 			errorElement: 'div',
 			errorPlacement: function(label, element) {
 				label.addClass('alert alert-danger p-1 my-1');	
@@ -18,6 +41,10 @@ $(document).ready(
                 user:{
 					required: true,
 					maxlength: 50,
+				},
+				address: {
+					required: true,
+					maxlength: 100,
 				},
 				dob:{
 					required: true,
@@ -28,10 +55,12 @@ $(document).ready(
                     minlength: 10,
 					maxlength: 10,
 				},
-				address:{
+				tcc:{
 					required: true,
-					maxlength: 50,
-				},
+					digits: true,
+                    minlength: 12,
+					maxlength: 12,
+				}
 			},
 			messages: {
 				
@@ -40,6 +69,10 @@ $(document).ready(
                     maxlength: "Tên không được quá 50 chữ cái"
                     
                 },
+                address: {
+					required: "Nhập địa chỉ trên CMT/CCCD",
+					maxlength: "Tối đa 100 ký tự",
+				},
                 dob:{
 					required: "Chọn ngày sinh",
 				},
@@ -49,11 +82,12 @@ $(document).ready(
                     minlength: "Số điện thoại gồm 10 số",
 					maxlength: "Số điện thoại gồm 10 số"
 				},
-				address:{
-					required: "Nhập địa chỉ",
-					maxlength: "Địa chỉ không  được quá 50 chữ cái",
-				},
-                
+				tcc:{
+					required: "Nhập số thẻ căn cước",
+					digits: "Ký tự là số",
+                    minlength: "Tối thiểu 9 số",
+					maxlength: "Tối đa 12 số",
+				}
 				
 			},
 		});
@@ -63,14 +97,14 @@ $(document).ready(
 			return value.trim().match(reg);
 		}, ""
 		);
-		$("#update-pass").validate({
+		$("#updatepass-form").validate({
 			errorElement: 'div',
 			errorPlacement: function(label, element) {
 				label.addClass('alert alert-danger p-1 my-1');	
 				label.insertAfter(element);
 			},
 			rules:{
-               oldpass:{
+               oldpassword:{
                     required: true,
                     maxlength: 16,
                     minlength: 8,
@@ -89,7 +123,7 @@ $(document).ready(
 			},
 			messages: {
 				
-               oldpass:{
+               oldpassword:{
 					required: "Nhập mật khẩu cũ ",
                     maxlength: "Mât khẩu tối đa 16 chữ cái",
                     minlength: "Mật khẩu tối thiểu 8 chữ cái"

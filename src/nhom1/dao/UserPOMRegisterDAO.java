@@ -25,8 +25,9 @@ public class UserPOMRegisterDAO {
 			preparedStmt.setString(4, pom.getPassword());
 			preparedStmt.setString(5, pom.getPhone());
 			preparedStmt.setString(6, pom.getTcc());
-			preparedStmt.setString(7, pom.getRole());
-			preparedStmt.setString(8, pom.getTokenEmail());
+			preparedStmt.setString(7, pom.getAddress());
+			preparedStmt.setString(8, pom.getRole());
+			preparedStmt.setString(9, pom.getTokenEmail());
 			preparedStmt.execute();
 			return true;
 		} catch (SQLException e) {

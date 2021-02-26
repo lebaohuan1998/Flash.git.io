@@ -76,12 +76,14 @@ public class RegisterPhotographerOrModel extends HttpServlet {
 		ngheDanh = request.getParameter("nghedanh");
 
 		String tcc = request.getParameter("thecancuoc");
+		String address = request.getParameter("address");
 
 
 		if (upomr.checkEmailDupplicate(email)) {
 			response.sendRedirect(request.getContextPath() + "/RegisterPhotographerOrModel?err=false");
 		} else {
 			PhotographerOrModel pom = new PhotographerOrModel(email, fullName, ngheDanh, md.md5(pwd), phone, tcc, "2");
+			pom.setAddress(address);
 			pom.setTokenEmail(token);
 			if (upomr.RegisterPOM(pom)) {
 				response.sendRedirect(request.getContextPath() + "/LoginServlet?Register=success");

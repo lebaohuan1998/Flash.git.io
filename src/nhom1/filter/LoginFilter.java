@@ -1,7 +1,6 @@
 package nhom1.filter;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -13,9 +12,6 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import nhom1.dao.AccountDAO;
-import nhom1.model.Account;
 
 /**
  * Servlet Filter implementation class LoginFilter

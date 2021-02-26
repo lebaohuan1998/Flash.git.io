@@ -25,12 +25,10 @@
 				Tin tài Khoản</a>
 			<br>
 			<a class="dropdown-item btn "
-				href="${pageContext.request.contextPath}/ProfilePhoto?flag=2">Album
-				Yêu Thích</a>
+				href="${pageContext.request.contextPath}/ProfilePhoto?flag=2">Tạo, sửa gói dịch vụ</a>
 			<br>
 			<a class="dropdown-item btn "
-				href="${pageContext.request.contextPath}/ProfilePhoto?flag=3">Thợ
-				Chụp Ảnh Yêu Thích</a>
+				href="${pageContext.request.contextPath}/GoiDichVu_LichBan?flag=3">Gói dịch vụ- Lịch bận</a>
 			<br>
 			<a class="dropdown-item btn "
 				href="${pageContext.request.contextPath}/ProfilePhoto?flag=4">Trang

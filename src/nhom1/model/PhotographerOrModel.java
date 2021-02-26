@@ -17,13 +17,19 @@ public class PhotographerOrModel {
 	private String password;
 	private String phone;
 	private String tcc;
-	private Date bod;
+	private String bod;
 	private String address;
+	private String gender;
+	private String noilamviec;
+	private String quymo;
+	private String xm1;
+	private String xm2;
+	private String xm3;
+	private String statusXm;
 	private String role;
 	private String avata;
 	private String tokenEmail;
 	private String status;
-	private String exp;
     private Date createdDate;
     private Date modifiedDate;
     private String createBy;
@@ -45,8 +51,19 @@ public class PhotographerOrModel {
 		this.role = role;
 	}
 	
+	
+	public PhotographerOrModel(String email, String fullName, String tokenEmail) {
+		super();
+		this.email = email;
+		this.fullName = fullName;
+		this.tokenEmail = tokenEmail;
+		
+	}
+	
+	
 	public PhotographerOrModel(String email, String fullName, String ngheDanh, String password, String phone,
-			String tcc, Date bod, String address, String role, String avata, String status, String exp) {
+			String tcc, String bod, String address, String gender, String noilamviec, String quymo, String xm1,
+			String xm2, String xm3, String statusXm, String avata, String status) {
 		super();
 		this.email = email;
 		this.fullName = fullName;
@@ -56,18 +73,76 @@ public class PhotographerOrModel {
 		this.tcc = tcc;
 		this.bod = bod;
 		this.address = address;
-		this.role = role;
+		this.gender = gender;
+		this.noilamviec = noilamviec;
+		this.quymo = quymo;
+		this.xm1 = xm1;
+		this.xm2 = xm2;
+		this.xm3 = xm3;
+		this.statusXm = statusXm;
 		this.avata = avata;
 		this.status = status;
-		this.exp = exp;
 	}
 	
-	public PhotographerOrModel(String email, String fullName, String tokenEmail) {
+	public PhotographerOrModel(String id, String email, String fullName, String ngheDanh, String password, String phone,
+			String tcc, String bod, String address, String gender, String noilamviec, String quymo, String avata) {
 		super();
+		this.id = id;
 		this.email = email;
 		this.fullName = fullName;
-		this.tokenEmail = tokenEmail;
-		
+		this.ngheDanh = ngheDanh;
+		this.password = password;
+		this.phone = phone;
+		this.tcc = tcc;
+		this.bod = bod;
+		this.address = address;
+		this.gender = gender;
+		this.noilamviec = noilamviec;
+		this.quymo = quymo;
+		this.avata = avata;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getNoilamviec() {
+		return noilamviec;
+	}
+	public void setNoilamviec(String noilamviec) {
+		this.noilamviec = noilamviec;
+	}
+	public String getQuymo() {
+		return quymo;
+	}
+	public void setQuymo(String quymo) {
+		this.quymo = quymo;
+	}
+	public String getXm1() {
+		return xm1;
+	}
+	public void setXm1(String xm1) {
+		this.xm1 = xm1;
+	}
+	public String getXm2() {
+		return xm2;
+	}
+	public void setXm2(String xm2) {
+		this.xm2 = xm2;
+	}
+	public String getXm3() {
+		return xm3;
+	}
+	public void setXm3(String xm3) {
+		this.xm3 = xm3;
+	}
+	
+	public String getStatusXm() {
+		return statusXm;
+	}
+	public void setStatusXm(String statusXm) {
+		this.statusXm = statusXm;
 	}
 	public String getTokenEmail() {
 		return tokenEmail;
@@ -111,10 +186,10 @@ public class PhotographerOrModel {
 	public void setTcc(String tcc) {
 		this.tcc = tcc;
 	}
-	public Date getBod() {
+	public String getBod() {
 		return bod;
 	}
-	public void setBod(Date bod) {
+	public void setBod(String bod) {
 		this.bod = bod;
 	}
 	public String getAddress() {
@@ -140,12 +215,6 @@ public class PhotographerOrModel {
 	}
 	public void setStatus(String status) {
 		this.status = status;
-	}
-	public String getExp() {
-		return exp;
-	}
-	public void setExp(String exp) {
-		this.exp = exp;
 	}
 	public Date getCreatedDate() {
 		return createdDate;
