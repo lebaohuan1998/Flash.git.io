@@ -14,6 +14,14 @@
 
 <link rel="stylesheet" href="public/css/style.css">
 <link rel="stylesheet" href="public/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Helvetica ">
+<style>
+body {
+	font-family: 'Helvetica ', serif;
+	font-size: 20px;
+}
+</style>
 </head>
 <body>
 	<nav class="navbar navbar-expand-xl bg-dark sticky-top ">

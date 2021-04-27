@@ -8,14 +8,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><c:if test="${param.flag =='1'}">
 		Quản lý hồ sơ
-	</c:if> <c:if test="${param.flag !='1'}">
-		Quản lý tài khoản
+	</c:if> <c:if test="${param.flag =='2'}">
+		Gói chụp yêu thích
+	</c:if>
+	<c:if test="${param.flag =='3'}">
+		Thợ ảnh yêu thích
+	</c:if>
+	<c:if test="${param.flag =='4'}">
+		Đơn hàng
 	</c:if></title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script type="text/javascript"
 	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
@@ -23,6 +28,10 @@
 	href="public/fontawesome-free-5.15.1-web/css/all.min.css">
 <link rel="stylesheet" href="public/css/style.css">
 <link rel="stylesheet" href="public/css/csshomepage.css">
+<link rel="stylesheet" href="public/css/tongquanalbum.css">
+<link rel="stylesheet" href="public/css/danhsachyeuthich.css">
+<link rel="stylesheet" href="public/css/donhangdatchup.css">
+<link rel="stylesheet" href="public/css/danhgiaalbum.css">
 <link rel="stylesheet" href="public/css/bootstrap.min.css">
 
 </head>
@@ -56,22 +65,34 @@
 
 		<div class=" row container mx-auto ">
 
-			<%@ include file="include/menu.jsp"%>
+			<%@ include file="include/menuver2.jsp"%>
 			<c:if test="${param.flag =='1'}">
 				<%@ include file="quanlihoso-user.jsp"%>
 			</c:if>
-			<c:if test="${para.flag =='2'}">
-
+			<c:if test="${param.flag =='2'}">
+				<%@ include file="FollowListServicePackage.jsp"%>
+			</c:if>
+			<c:if test="${param.flag =='3'}">
+				<%@ include file="FollowListPhotographer.jsp"%>
+			</c:if>
+			<c:if test="${param.flag =='4'}">
+				<%@ include file="donhangdatchup.jsp"%>
+			</c:if>
+			<c:if test="${param.flag =='5'}">
+				<%@ include file="thongbao.jsp"%>
 			</c:if>
 
 		</div>
 
 	</div>
 	<div class="bg-light">
-		<br> <br> <br>
+		<br>
 	</div>
 
 	<%@ include file="include/footer.jsp"%>
+	<script type="text/javascript">
+		
+	</script>
 	<script
 		src="${pageContext.request.contextPath}/public/js/validate/infousernor.js"></script>
 </body>

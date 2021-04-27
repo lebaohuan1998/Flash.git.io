@@ -16,7 +16,7 @@ jQuery(document).ready(function($){
 	if($(".btn-top").length > 0){
 		$(window).scroll(function () {
 			var e = $(window).scrollTop();
-			if (e > 300) {
+			if (e > 400) {
 				$(".btn-top").show()
 			} else {
 				$(".btn-top").hide()
@@ -28,4 +28,13 @@ jQuery(document).ready(function($){
 			},600,'easeInOutSine')
 		})
 	}		
+});
+
+$(document).ready(function() {
+  $('#select-all').click(function() {
+    var checked = this.checked;
+    $('input[type="checkbox"]').each(function() {
+      this.checked = checked;
+    });
+  })
 });

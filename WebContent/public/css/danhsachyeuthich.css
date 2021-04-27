@@ -1,0 +1,164 @@
+
+/* album */
+.hover_2 {
+	overflow: hidden;
+	position: relative;
+	padding-bottom: 60%;
+  }
+  .hover-overlay_2 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 90;
+	transition: all 0.4s;
+  }
+  .hover_2 img {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: all 0.3s;
+  }
+  .hover-noidung_2 {
+	position: relative;
+	z-index: 99;
+  }
+  .hover-1_2 {
+	color: #fff;
+  }
+  .hover-1_2 img {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: -5%;
+	transition: all 0.3s;
+  }
+  .hover-1-noidung_2 {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 99;
+	transition: all 0.4s;
+	margin-bottom: -20px;
+  }
+  .hover-1_2 .hover-overlay_2 {
+	background: rgba(0, 0, 0, 0.5);
+  }
+  .hover-1-trichdan_2 {
+	transform: translateY(0.5rem);
+	transition: all 0.4s;
+	opacity: 0;
+	margin-bottom: 16% ;
+	font-size: 14px;
+	margin-left: 60% ;
+  }
+  .hover-1_2 .hover-1-noidung_2 {
+	bottom: 2rem;
+  }
+  .hover-1_2 .hover-1-trichdan_2 {
+	opacity: 1;
+	transform: none;	
+  }
+  .hover-1_2 img {
+	left: 0;
+  }
+  .hover-1:hover_2 .hover-overlay_2 {
+	opacity: 0;
+  }
+
+.div1_2 img{
+	width:30px;
+	height:30px;
+	border-radius:50%;
+}
+	
+.bk_2{
+	margin-right: 80px;	
+	margin-bottom: 22px;
+	font-size: 20px;
+	color: rgb(255, 166, 0);
+	}
+.conten_2{
+	margin-top: 12px;
+	margin-left: 10px;
+}
+.hover-1_2 .content_danhsach{
+	display: none;
+}
+.hover-1_2:hover .content_danhsach{
+	display: block;
+}
+.hover-1_2 .theodoi{
+	display: none;
+}
+.hover-1_2:hover .theodoi{
+	display: block;
+	 
+}
+.hover-1_2 .a .theodoi {
+	display: block;
+	 -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+ 
+    text-decoration: none;
+    color: initial;
+   
+}
+.a .btn{
+	display: block;
+}
+.a:hover .theodoi{
+	display: block;
+	 
+}
+
+
+/* photo */
+.ds_photo img{
+	height: 150px;
+	width: 170px;
+	/* border-top-right-radius: 30px;
+	border-top-left-radius: 8px; */
+/* 	border-radius: 30px; */
+/* 	margin-top: 10px; */
+/* 	margin-bottom: 10px; */
+	max-width:100% ;
+	margin: 0 auto; 
+	display: block
+	
+	
+}
+.content_ds{
+	border: solid white 0.5px;
+	border-radius: 10px;
+}
+.ds_photo{
+	position: relative;
+}
+/* star*/
+.checked {
+  color: orange;
+}
+
+
+.khong .checkeded {
+  color: orange;
+}
+
+#tenvovan a:hover {
+	color:white;
+}
+
+
+
+
+
+
+
+
+
+
+

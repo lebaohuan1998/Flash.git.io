@@ -14,8 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet Filter implementation class CarAdmin
  */
-@WebFilter(urlPatterns = { "/CarServlet", "/ProfileUser","/BookingOfficeServlet", "/ParkingLotServlet", "/TripServlet",
-		"/TicketServlet"})
+@WebFilter(urlPatterns = {"/ProfileUser"})
 public class User implements Filter {
 
 	/**
@@ -46,9 +45,13 @@ public class User implements Filter {
 		
 		Object obj = req.getSession().getAttribute("role");
 		if (obj != null) {
-			if (obj.equals("1")) {
+
+			if (obj.equals(2)||obj.equals(3)) {
+
 				chain.doFilter(request, response);
-			} else {
+			}
+			else {
+
 				res.sendRedirect(req.getContextPath() + "/PageNotFound");
 			}
 		} else {

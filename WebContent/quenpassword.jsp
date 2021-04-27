@@ -36,15 +36,20 @@
 			</c:if>
 			<c:if test="${param.find =='true' }">
 				<div class="alert alert-success in">
-					<strong>Thành công!</strong> Mật khẩu mới đã được gửi vào email của bạn, hãy vào và nhận mật khẩu mới.
+					<strong>Thành công!</strong> Hãy vào email của bạn để thực hiện thay đổi mật khẩu, hãy bảo vệ mật khẩu một cách an toàn.
+				</div>
+			</c:if>
+			<c:if test="${param.noti =='timeout' }">
+				<div class="alert alert-success in">
+					<strong>Không thành công!</strong> vui lòng thực hiện lại.
 				</div>
 			</c:if>
 			
 			<div class="row justify-content-center half">
 				<div class="col-md-12">
 					<!-- <div class="bg order-1 order-md-2 bg1"> </div> -->
-					<div class="form-block mx-auto">
-						<div class="form-group text-center mb-5">
+					<div class="form-block mx-auto" style="padding: 0px 40px 40px 40px;">
+						<div class="form-group text-center">
 							<h1>Nhập Email</h1>
 						</div>
 						<form id="login-form" class="form"
@@ -57,13 +62,13 @@
 								<label class="label">Tài khoản của bạn là</label>
 							</div>
 							<div class="form-group  align-items-center">
-								<input name="user" type="radio" value="1" class="mr-3"
-									checked="checked" />Người dùng <input name="user" type="radio"
-									value="2" class="mr-3" />Thợ ảnh
+								<input id="user" name="user" type="radio" value="1"
+									class="gender mr-1" checked="checked" /><label>Người
+									dùng </label><input id="user" name="user" type="radio" value="2"
+									class="gender female mr-1" /><label>Thợ ảnh</label>
 							</div>
 							<div class="form-group">
-								<button type="submit" class="btn btn-info btn-block my-3">Gửi
-									mật khẩu mới về mail nhập</button>
+								<button type="submit" class="btn btn-info btn-block my-3">Gửi về email</button>
 							</div>
 						</form>
 

@@ -33,9 +33,9 @@ public class SendEmailRegister {
 			Message mess = new MimeMessage(session);
 			mess.setFrom(new InternetAddress(username));
 			mess.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-			mess.setSubject("XÁC THỰC EMAIL");
-			mess.setText("Chào mừng bạn đến với Flash, xin hãy nhấn vào link dưới để xác nhận tài khoản\n"
-					+ "Link: http://flash1.j.layershift.co.uk/ActiveEmail?user="+email+"&active="+token);
+			mess.setSubject("Xác Thực Tài Khoản Flash");
+			mess.setText("Chào mừng bạn đến với Flash, hãy nhấn vào link bên dưới để xác minh tài khoản\n"
+					+ "Link: http://localhost:8080/Flash/ActiveEmail?user="+email+"&active="+token);
 			Transport.send(mess);
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block
@@ -43,7 +43,7 @@ public class SendEmailRegister {
 			
 		}
 	}
-	public void sendEmailPass(HttpServletRequest request, HttpServletResponse response,String email,String newPass) {
+	public void sendEmailPass(HttpServletRequest request, HttpServletResponse response,String email,String token) {
 		final String username = "flashteam1998@gmail.com";
 		final String pass = "Loc666666";
 		Properties pop = new Properties(); 
@@ -57,15 +57,15 @@ public class SendEmailRegister {
 			}
 		});
 		//
-		
 		try {
 			Message mess = new MimeMessage(session);
 			mess.setFrom(new InternetAddress(username));
 			mess.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-			mess.setSubject("MẬT KHẨU MỚI");
+			mess.setSubject("Link Thay Đổi Mật Khẩu");
 			mess.setText("Chào mừng bạn đến với Flash.\n"
-					+ "		Mật khẩu mới của bạn hiện tại là:"+newPass+"\n"
-					+ "		Hãy thay đổi mật khẩu trong phần cập nhật thông tin để tránh làm lộ thông tin tài khoản.");
+					+ "Nhấn vào link để cập nhật lại mật khẩu :\n"
+					+ "Link: http://localhost:8080/Flash/UpdatePass?email="+email+"&token="+token+"\n"
+					+ "Hãy ghi nhớ lại mật khẩu của bạn để tiếp tục sử dụng dịch vụ.");
 			Transport.send(mess);
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block

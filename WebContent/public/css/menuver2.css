@@ -1,0 +1,18 @@
+@charset "ISO-8859-1";
+.menuver2{
+	border-right:  1px solid rgba(0, 0, 0, 0.15);
+	border-top:  1px solid rgba(0, 0, 0, 0.15);
+}
+.form-blockver2 {
+	background: #fff;
+	padding: 40px;
+	margin-top: 10vh;
+	max-width: 500px;
+	max-height: 100%;
+}
+.menuver2 a:hover {
+	color: #ffb3ff;
+}
+.menuver2 a:visited {
+	background: pink;
+}

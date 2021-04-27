@@ -1,209 +1,187 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="form-block col-9 mx-auto">
-	<div class=" ">
-		<div class="container-fluid">
-			<div class="text-center">
-				<h2 class="display">Tạo và sửa gói dịch vụ</h2>
-			</div>
+	<div class="container-fluid">
+		<div class="text-center">
+			<h2 class="display">Tạo và sửa gói dịch vụ</h2>
 		</div>
-		<div class="left" style="width: 40%; float: left">
-			<div class="form-group">
-				<textarea class="form-control" id="exampleFormControlTextarea1"
-					rows="5" placeholder="Tổng quan về gói dịch vụ"></textarea>
-			</div>
-			<div class="input-group">
-				<div class="form-outline">
-					<input type="text" id="form1" class="form-text" />
-					<button type="submit" class="btn-outline-dark">Thêm ảnh</button>
+	</div>
+	<br> <br>
+	<div class="input-group">
+		<div class="">
+			<form id="tao_sua-form1" class="form "
+				action="${pageContext.request.contextPath}/TaoSuaGoiDichVu?flag=2&cmd=CREATE"
+				method="post" enctype="multipart/form-data">
+				<div class=" ">
+
+					<div class="">
+						<div class="form-group">
+							<label>Tên gói chụp:</label>
+						</div>
+						<div class=" form-group">
+							<input type="text" name="tengoi" value="${albumName}"
+								<c:if test="${hide =='yes'}">disabled="disabled" </c:if>>
+						</div>
+
+						<div class=" form-group">
+							<textarea class="" placeholder="Mô tả gói" rows="4" cols="45"
+								id="floatingTextarea" name="mota"
+								<c:if test="${hide =='yes'}">disabled="disabled" </c:if>>${mota}</textarea>
+
+						</div>
+						<c:if test="${hide !='yes'}">
+							<div class=" form-group">
+								<div class="form-outline">
+									<label>Chọn Ảnh Album :</label>
+								</div>
+							</div>
+							<div class=" form-group">
+								<div class="form-outline">
+									<input type="file" class="btn " id="file" name="file"
+										accept="image/x-png,image/gif,image/jpeg" multiple="multiple"
+										onchange="return fileValidation()">
+								</div>
+							</div>
+						</c:if>
+
+					</div>
+					<div class="">
+
+						<div class="col-5 form-group">
+							<label>Thể loại album:</label>
+						</div>
+						<div class="col-5 form-group">
+							<select class="btn btn-outline-dark" name="theloaichup"
+								<c:if test="${hide =='yes'}">disabled="disabled" </c:if>>
+
+								<option ${theloai=='1'? 'selected="selected"' : ''} value="1">Chụp
+									chân dung</option>
+								<option ${theloai=='2'? 'selected="selected"' : ''} value="2">Chụp
+									ảnh sự kiện</option>
+								<option ${theloai=='3'? 'selected="selected"' : ''} value="3">Chụp
+									ảnh cưới</option>
+								<option ${theloai=='4'? 'selected="selected"' : ''} value="4">Chụp
+									kỷ yếu</option>
+								<option ${theloai=='5'? 'selected="selected"' : ''} value="5">Chụp
+									ảnh gia đình và bé</option>
+								<option ${theloai=='6'? 'selected="selected"' : ''} value="6">Chụp
+									sản phẩm</option>
+								<option ${theloai=='7'? 'selected="selected"' : ''} value="7">Chụp
+									Khác.</option>
+							</select>
+						</div>
+						<div class="col-5 form-group">
+							<label>Địa điểm chụp:</label>
+						</div>
+						<div class=" col-5  form-group">
+							<select class="btn btn-outline-dark" name="diadiem"
+								<c:if test="${hide =='yes'}">disabled="disabled" </c:if>>
+								<c:forEach items="${listLocation}" var="listLocation">
+									<option
+										${listLocation.locationId==locationId? 'selected="selected"' : ''}
+										value="${listLocation.locationId}">
+										${listLocation.locationName}</option>
+								</c:forEach>
+							</select>
+						</div>
+						<div class="col-5 form-group">
+							<label>Giá:</label>
+						</div>
+						
+							<!-- <!-- <div class="col-5 "> -->
+							<div style="margin: 0px 0px 0px 12px;">
+								<input type="text" name="price" id="price" value="${price}"
+									<c:if test="${hide =='yes'}">disabled="disabled" </c:if>
+									class="mr-1" style="text-align: right;">
+							</div>
+							<!-- </div> -->
+							<div style="margin-left: 200px;margin-top: -28px;">
+								.000đ
+							</div>
+					
+
+						<c:if test="${hide !='yes'}">
+							<div class="col-5 form-group">
+								<label>Đặt cọc:</label>
+							</div>
+
+							<div class="col-5 form-group">
+								<select class="btn btn-outline-dark " name="datcoc"
+									onchange="validateSelectBox(this)">
+									<option value="0">0%</option>
+									<option value="0.05">5%</option>
+									<option value="0.1">10%</option>
+									<option value="0.15">15%</option>
+									<option value="0.2">20%</option>
+								</select>
+
+							</div>
+						</c:if>
+						<div class="col-5 form-group">
+							<label>Tiền cọc:</label> <span id="tiencoc" class="">${deposite}.đ</span>
+						</div>
+
+
+					</div>
 				</div>
+
+				<button type="submit"
+					class="btn btn-info <c:if test="${hide =='yes'}">collapse</c:if>">Tạo</button>
+				<c:if test="${hide =='yes'}">
+					<c:url var="updateLink" value="/TaoSuaGoiDichVu">
+						<c:param name="flag" value="4" />
+						<c:param name="command" value="SHOW" />
+					</c:url>
+					<a type="submit" href="${updateLink}" class="btn btn-info ">Sửa</a>
+				</c:if>
+				<a href="${pageContext.request.contextPath}/GoiDichVuLichBan?flag=3"
+					class="btn btn-info">Quay Lại</a>
+			</form>
+		</div>
+
+
+		<div class="col-5">
+			<div class="">
+				<label>Ảnh Bìa</label>
+			</div>
+			<div>
+				<c:if test="${coverimage!=null}">
+					<img class="rounded"
+						src="images/${id}${role}/albums/${albumName}/${coverimage}"
+						height=220 width=400 />
+				</c:if>
+				<c:if test="${coverimage==null}">
+					<img class="rounded" src="form/pic/anhchandung.png" height=220
+						width=400 />
+				</c:if>
+
 			</div>
 			<br>
-			<div class="navbar-tab">
-				<ul class="nav nav-tabs  mx-auto ">
-					<!-- <li class="active"><a href="#">Home</a></li> -->
-					<li class="col-3"><a href="#">Xoá ảnh</a></li>
-					<li class="col-5"><a href="#">Chọn làm ảnh bìa</a></li>
-					<li class="col-2"><a href="#">Lên</a></li>
-					<li class="col-2"><a href="#">Xuống</a></li>
-				</ul>
+			<div class="">
+				<label>Ảnh Album</label>
 			</div>
+			<div class="">
+				<div class="form-image ">
+					<div class="scroll">
+						<c:forEach items="${listImages}" var="listI">
 
-			<div class="group-image">
-				<form>
-					<div class="form-image">
-						<input type="checkbox" id="myCheckbox1" /> <label
-							for="myCheckbox1"><img src="images/anhchandung.PNG" /></label> <label
-							for="myCheckbox1">Album 1</label> <br> <br> <input
-							type="checkbox" id="myCheckbox2" /> <label for="myCheckbox2"><img
-							src="images/anhchandung.PNG" /></label> <label for="myCheckbox2">Album
-							2</label> <br> <br> <input type="checkbox" id="myCheckbox3" />
-						<label for="myCheckbox3"><img src="images/anhchandung.PNG" /></label>
-						<label for="myCheckbox3">Album 3</label>
+							<div class="  ">
+								<div class="hover hover-1 rounded ">
+									<img class="img-fluid "
+										src="images/${id}${role}/albums/${albumName}/${listI.imageName}" />
+									<div class="hover-overlay"></div>
+									<div class="hover-1-noidung  px-5  py-3">
+										<div class=" hover-1-trichdan font-weight-light  mb-0"></div>
+									</div>
+								</div>
+							</div>
+							<!-- Modal -->
+
+							<br>
+						</c:forEach>
 					</div>
-				</form>
-			</div>
-		</div>
-
-		<div style="width: 40%; float: right">
-			<div class="group-info">
-				<div class="group-info-detail">
-					<label for="albums">Thể loại album:</label> <select
-						class="btn btn-outline-dark">
-						<option value="0">Vui lòng chọn thể loại chụp</option>
-						<option value="1">Album chụp chân dung</option>
-						<option value="2">Album chụp ảnh sự kiện</option>
-						<option value="3">Album chụp ảnh cưới</option>
-						<option value="4">...</option>
-					</select> <br> <br> <label for="albums">Địa điểm chụp:</label> <select
-						class="btn btn-outline-dark" name="workplace">
-						<option ${workplace=='An Giang'? 'selected="selected"' : ''}>An
-							Giang</option>
-						<option
-							${workplace=='Bà Rịa-Vũng Tàu'? 'selected="selected"' : ''}>Bà
-							Rịa-Vũng Tàu</option>
-						<option ${workplace=='Bạc Liêu'? 'selected="selected"' : ''}>Bạc
-							Liêu</option>
-						<option ${workplace=='Bắc Kạn'? 'selected="selected"' : ''}>Bắc
-							Kạn</option>
-						<option ${workplace=='Bắc Giang'? 'selected="selected"' : ''}>Bắc
-							Giang</option>
-						<option ${workplace=='Bắc Ninh'? 'selected="selected"' : ''}>Bắc
-							Ninh</option>
-						<option ${workplace=='Bến Tre'? 'selected="selected"' : ''}>Bến
-							Tre</option>
-						<option ${workplace=='Bình Dương'? 'selected="selected"' : ''}>Bình
-							Dương</option>
-						<option ${workplace=='>Bình Định'? 'selected="selected"' : ''}>Bình
-							Định</option>
-						<option ${workplace=='Bình Thuận'? 'selected="selected"' : ''}>Bình
-							Phước</option>
-						<option ${workplace=='Bình Dương'? 'selected="selected"' : ''}>Bình
-							Thuận</option>
-						<option ${workplace=='Cà Mau'? 'selected="selected"' : ''}>Cà
-							Mau</option>
-						<option ${workplace=='Cao Bằng'? 'selected="selected"' : ''}>Cao
-							Bằng</option>
-						<option ${workplace=='Cần Thơ'? 'selected="selected"' : ''}>Cần
-							Thơ</option>
-						<option ${workplace=='Đà Nẵng'? 'selected="selected"' : ''}>Đà
-							Nẵng</option>
-						<option ${workplace=='Đắk Lắk'? 'selected="selected"' : ''}>Đắk
-							Lắk</option>
-						<option ${workplace=='Đắk Nông'? 'selected="selected"' : ''}>Đắk
-							Nông</option>
-						<option ${workplace=='Điện Biên'? 'selected="selected"' : ''}>Điện
-							Biên</option>
-						<option ${workplace=='Đồng Nai'? 'selected="selected"' : ''}>Đồng
-							Nai</option>
-						<option ${workplace=='Đồng Tháp'? 'selected="selected"' : ''}>Đồng
-							Tháp</option>
-						<option ${workplace=='Gia Lai'? 'selected="selected"' : ''}>Gia
-							Lai</option>
-						<option ${workplace=='Hà Giang'? 'selected="selected"' : ''}>Hà
-							Giang</option>
-						<option ${workplace=='Hà Nam'? 'selected="selected"' : ''}>Hà
-							Nam</option>
-						<option ${workplace=='Hà Nội'? 'selected="selected"' : ''}>Hà
-							Nội</option>
-						<option ${workplace=='Hà Tây'? 'selected="selected"' : ''}>Hà
-							Tây</option>
-						<option ${workplace=='Hà Tĩnh'? 'selected="selected"' : ''}>Hà
-							Tĩnh</option>
-						<option ${workplace=='Hải Dương'? 'selected="selected"' : ''}>Hải
-							Dương</option>
-						<option ${workplace=='Hải Phòng'? 'selected="selected"' : ''}>Hải
-							Phòng</option>
-						<option ${workplace=='Hòa Bình'? 'selected="selected"' : ''}>Hòa
-							Bình</option>
-						<option ${workplace=='Hồ Chí Minh'? 'selected="selected"' : ''}>Hồ
-							Chí Minh</option>
-						<option ${workplace=='Hậu Giang'? 'selected="selected"' : ''}>Hậu
-							Giang</option>
-						<option ${workplace=='Hưng Yên'? 'selected="selected"' : ''}>Hưng
-							Yên</option>
-						<option ${workplace=='Khánh Hòa'? 'selected="selected"' : ''}>Khánh
-							Hòa</option>
-						<option ${workplace=='Kiên Giang'? 'selected="selected"' : ''}>Kiên
-							Giang</option>
-						<option ${workplace=='Kon Tum'? 'selected="selected"' : ''}>Kon
-							Tum</option>
-						<option ${workplace=='Lai Châu'? 'selected="selected"' : ''}>Lai
-							Châu</option>
-						<option ${workplace=='Lào Cai'? 'selected="selected"' : ''}>Lào
-							Cai</option>
-						<option ${workplace=='Lạng Sơn'? 'selected="selected"' : ''}>Lạng
-							Sơn</option>
-						<option ${workplace=='Lâm Đồng'? 'selected="selected"' : ''}>Lâm
-							Đồng</option>
-						<option ${workplace=='Long An'? 'selected="selected"' : ''}>Long
-							An</option>
-						<option ${workplace=='Nam Định'? 'selected="selected"' : ''}>Nam
-							Định</option>
-						<option ${workplace=='Nghệ An'? 'selected="selected"' : ''}>Nghệ
-							An</option>
-						<option ${workplace=='Ninh Bình'? 'selected="selected"' : ''}>Ninh
-							Bình</option>
-						<option ${workplace=='Ninh Thuận'? 'selected="selected"' : ''}>Ninh
-							Thuận</option>
-						<option ${workplace=='Phú Thọ'? 'selected="selected"' : ''}>Phú
-							Thọ</option>
-						<option ${workplace=='Phú Yên'? 'selected="selected"' : ''}>Phú
-							Yên</option>
-						<option ${workplace=='Quảng Bình'? 'selected="selected"' : ''}>Quảng
-							Bình</option>
-						<option ${workplace=='Quảng Nam'? 'selected="selected"' : ''}>Quảng
-							Nam</option>
-						<option ${workplace=='Quảng Ngãi'? 'selected="selected"' : ''}>Quảng
-							Ngãi</option>
-						<option ${workplace=='Quảng Ninh'? 'selected="selected"' : ''}>Quảng
-							Ninh</option>
-						<option ${workplace=='Quảng Trị'? 'selected="selected"' : ''}>Quảng
-							Trị</option>
-						<option ${workplace=='Sóc Trăng'? 'selected="selected"' : ''}>Sóc
-							Trăng</option>
-						<option ${workplace=='Sơn La'? 'selected="selected"' : ''}>Sơn
-							La</option>
-						<option ${workplace=='Tây Ninh'? 'selected="selected"' : ''}>Tây
-							Ninh</option>
-						<option ${workplace=='Thái Bình'? 'selected="selected"' : ''}>Thái
-							Bình</option>
-						<option ${workplace=='Thái Nguyên'? 'selected="selected"' : ''}>Thái
-							Nguyên</option>
-						<option ${workplace=='Thanh Hóa'? 'selected="selected"' : ''}>Thanh
-							Hóa</option>
-						<option
-							${workplace=='Thừa Thiên – Huế'? 'selected="selected"' : ''}>Thừa
-							Thiên – Huế</option>
-						<option ${workplace=='Tiền Giang'? 'selected="selected"' : ''}>Tiền
-							Giang</option>
-						<option ${workplace=='Trà Vinh'? 'selected="selected"' : ''}>Trà
-							Vinh</option>
-						<option ${workplace=='Tuyên Quang'? 'selected="selected"' : ''}>Tuyên
-							Quang</option>
-						<option ${workplace=='Vĩnh Long'? 'selected="selected"' : ''}>Vĩnh
-							Long</option>
-						<option ${workplace=='Vĩnh Phúc'? 'selected="selected"' : ''}>Vĩnh
-							Phúc</option>
-						<option ${workplace=='Yên Bái'? 'selected="selected"' : ''}>Yên
-							Bái</option>
-					</select> <br> <br> <label for="albums">Giá:</label> <input
-						type="text" name="price"> <br> <br> <label
-						for="albums">Đặt cọc:</label> <select class="btn btn-outline-dark">
-						<option value="0">Chọn cọc theo gói album</option>
-						<option value="1">0%</option>
-						<option value="2">5%</option>
-						<option value="3">10%</option>
-						<option value="4">15%</option>
-						<option value="5">20%</option>
-						<option value="6">...</option>
-					</select>
 				</div>
 			</div>
-			<br> <br>
-
 		</div>
-
 	</div>
-	<button type="submit" class="btn btn-outline-dark ">Lưu lại</button>
 </div>

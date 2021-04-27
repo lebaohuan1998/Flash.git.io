@@ -1,0 +1,73 @@
+.form-block_trangdatchup {
+	background: #fff;
+	max-width: 100%;
+	max-height: 100%;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.tdc1 {
+	box-sizing: border-box;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	margin: 10px 0;
+	height: 37px;
+}
+
+.datchup {
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+	margin-top: 10px;
+}
+
+.tdc .info {
+	margin-left: 15px;
+	/* color: white; */
+  border-color: #2196F3;
+  color: dodgerblue;
+
+}
+.tdc .danger {
+  border-color: #f44336;
+  color: red;
+}
+.tdc .warning {
+  border-color: #ff9800;
+  color: orange;
+}
+.tdc .success {
+  border-color: #4CAF50;
+  color: green;
+}
+.info:hover {
+  background: #2196F3;
+  color: white;
+}
+.danger:hover {
+  background: #f44336;
+  color: white;
+}
+.default {
+  border-color: #e7e7e7;
+  color: black;
+}
+.tdc button{
+	margin-left: 10px;
+}
+.default:hover {
+  background: #e7e7e7;
+}
+.tdc span {
+	text-align: center;
+}
+
+.bang th {
+	color: white;
+}
+
+.bang1 th {
+	font-weight: normal;
+	padding-right: 23px;
+}
+
+tr, th {
+	box-sizing: border-box;
+}

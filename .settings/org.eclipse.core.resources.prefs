@@ -1,4 +1,7 @@
 eclipse.preferences.version=1
-encoding//WebContent/form/include/menu.jsp=UTF-8
-encoding//WebContent/form/include/navbar.jsp=UTF-8
-encoding//WebContent/form/include/sidebar.jsp=UTF-8
+encoding//WebContent/home-page.jsp=UTF-8
+encoding//WebContent/public/css/csshomepage.css=UTF-8
+encoding//WebContent/public/css/danhgiaalbum.css=UTF-8
+encoding//WebContent/thaydoimatkhau.jsp=UTF-8
+encoding//src/nhom1/dao/PhotographerInfoDAO.java=UTF-8
+encoding//src/nhom1/sendemail/SendEmailRegister.java=UTF-8

@@ -20,7 +20,7 @@ width: 25%;
 
 .slider-home {
   opacity: 0.5;
-  filter: alpha(opacity=50); /* sử dụng cho IE8 trở về trước */
+  filter: alpha(opacity=50); /* sá»­ dá»¥ng cho IE8 trá»Ÿ vá»� trÆ°á»›c */
   height: 600px;
 }
 .textshow{
@@ -43,28 +43,24 @@ width: 25%;
 .text-bar h1 {
   text-align: center;
   font-size: 400%;
-  text-shadow: 10px 10px 30px #000;
   color: white;
   font-size: 50px;
 }
 .text-bar h3 {
   text-align: center;
   font-size: 150%;
-  text-shadow: 10px 10px 30px #000;
   color: white;
   font-size: 23px;
 }
 
 .container-fluid h1 {
-  padding: 5rem;
   text-align: center;
   font-size: 400%;
-  text-shadow: 10px 10px 30px #000;
+  padding-top: 5rem;
 }
 .container-fluid h3 {
   text-align: center;
   font-size: 150%;
-  text-shadow: 10px 10px 30px #000;
 }
 input:focus::-webkit-input-placeholder {
   color: white;
@@ -94,13 +90,11 @@ input:focus::-webkit-input-placeholder {
 .jumbotron h1 {
   text-align: center;
   font-size: 400%;
-  text-shadow: 10px 10px 30px #000;
   padding: 1rem;
 }
 .jumbotron h3 {
   text-align: center;
   font-size: 150%;
-  text-shadow: 10px 10px 30px #000;
 }
 
 .canle {
@@ -110,7 +104,6 @@ input:focus::-webkit-input-placeholder {
 
 }
 .trongoc {
-  border-radius: 5% ;
   width: 100%;
   height: 240px;
 }
@@ -137,9 +130,9 @@ a.star {
   line-height: 1;
   transition: all 0.1s ease;
 }
-.fa-star {
-  color: rgb(181, 181, 181) !important;
-}
+/* .fa-star { */
+/*   color: rgb(181, 181, 181) !important; */
+/* } */
 /*-----button top---*/
 .fa-chevron-up {
   color: #343a40;
@@ -154,7 +147,7 @@ a.star {
   width: 50px;
   font-size: 40px;
 }
-/*--thợ chụp ảnh--*/
+/*--thá»£ chá»¥p áº£nh--*/
 .bgimg{
      margin: auto;
 }
@@ -168,12 +161,11 @@ a.star {
   
 }
 .bgphotographer{
-  border-radius: 5%;
   padding-top: 5%;
   padding-bottom: 5%;
 }
 
-/*----------------nội dung phần thể loại-------------*/
+/*----------------ná»™i dung pháº§n thá»ƒ loáº¡i-------------*/
 .text-theloai {
   margin-top: 10%;
   position: absolute;
@@ -268,4 +260,120 @@ a.star {
 
 .xxx{
 	position: absolute;
+}
+.scheduledate {
+    padding-left: 10%;
+}
+
+
+/* nổi bật */
+.noibat{
+	position: absolute;
+	z-index: 999;
+	margin-top: -143px;
+	margin-left: 96px;
+	height: 75px;
+	width: 75px;
+	box-sizing: border-box;
+}
+.noibat .noibat1{
+	position: absolute;
+	background: #00b9f2;;
+	transform: rotate(45deg);
+	text-align: center;
+	font-size: 12px;
+	box-sizing: border-box;
+	width: 100%;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	color: white;
+}
+.noibat .noibat1:before {
+	content: "";
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    z-index: -1;
+    border-left: 3px solid #3273dc;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #3273dc;
+    display: block;
+}
+.noibat .noibat1:after {
+	content: "";
+    position: absolute;
+    right: 0px;
+    top: 100%;
+    z-index: -1;
+    border-left: 3px solid transparent;
+    border-right: 3px solid #3273dc;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #3273dc; 
+    display: block;
+}
+
+/* bài viết */
+.baiviet_tc {
+	width: 250px;
+	height: 274px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	font-size: 16px;
+	margin: 0px 20px 20px 0px;
+}
+
+.baiviet_tc:hover .baiviet_tc1 span {
+	color: #1a75ff;
+}
+
+.baiviet_tc:hover .baiviet_tc1 img {
+	opacity: 0.5;
+}
+
+.baiviet_tc .baiviet_tc1 img {
+	opacity: 1;
+}
+
+/* modal */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+ overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+  padding-top: 60px;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 5px auto; /* 15% from the top and centered */
+  border: 1px solid #888;
+
+}
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
 }

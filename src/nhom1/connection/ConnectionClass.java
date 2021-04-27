@@ -4,15 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
-
 public class ConnectionClass {
 	private static ConnectionClass instance;
 	private Connection connection;
-	
-//	private String host="node242810-flash1.j.layershift.co.uk";
-//	private String db ="capstone1";
-//	
+
+//	private String host="node253792-flashvn.j.layershift.co.uk";
+//	private String db ="capstone2";
 	
 
 	private ConnectionClass() {
@@ -22,18 +19,19 @@ public class ConnectionClass {
 //			final String driver =("com.mysql.cj.jdbc.Driver"); 
 //			String url="jdbc:mysql://"+host+"/"+db;
 //			 String user = ("root");
-//			 String pass = ("ALLmlt82468");
+//			 String pass = ("RKFxld29795");
 //			 Class.forName(driver);
 //			 connection = DriverManager.getConnection(url, user, pass);
-////			
-			final String driver =("com.mysql.cj.jdbc.Driver");
-			final String server = ("jdbc:mysql://localhost:3306/capstone1");
+//////			
+
+			final String driver = ("com.mysql.cj.jdbc.Driver");
+			final String server = ("jdbc:mysql://localhost:3306/capstone2");
 			final String user = ("huan");
 			final String pass = ("lebaohuan1998");
 			Class.forName(driver);
 			connection = DriverManager.getConnection(server, user, pass);
 
-		} catch ( SQLException ex) {
+		} catch (SQLException ex) {
 			System.out.println("Database Connection Creation Failed : " + ex.getMessage());
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -43,7 +41,7 @@ public class ConnectionClass {
 
 	public Connection getConnection() {
 		return connection;
-		
+
 	}
 
 	public static ConnectionClass createConnect() throws SQLException {

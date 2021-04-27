@@ -40,10 +40,14 @@ public class CheckLogined implements Filter {
 		Object obj = req.getSession().getAttribute("role");
 		if(obj == null) {
 		chain.doFilter(request, response);
-		} else if(obj != null && obj.equals("1")) {
+		} else if(obj != null && obj.equals(1)) {
 			res.sendRedirect(req.getContextPath() + "/HomePageServlet");
-		} else if(obj != null && obj.equals("2")) {
+		} else if(obj != null && obj.equals(2)) {
 			res.sendRedirect(req.getContextPath() + "/HomePageServlet");
+		} else if(obj != null && obj.equals(3)) {
+			res.sendRedirect(req.getContextPath() + "/HomePageServlet");
+		}else if(obj != null && obj.equals(0)) {
+			res.sendRedirect(req.getContextPath() + "/HompageAdmin");
 		}
 	}
 

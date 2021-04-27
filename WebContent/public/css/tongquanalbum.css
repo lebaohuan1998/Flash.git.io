@@ -1,0 +1,135 @@
+
+.navbar{
+    height: 85px;
+    justify-content: left;
+}
+.bg-dark{
+    background-color: #343a40!important
+}
+.form-group img{
+    height: 130px;
+    width: 190px;
+    margin-top: 1px;
+}
+.form-group h4{
+    border-style: groove;
+ font-size: 18px;
+}
+.form-noidung{
+	margin-left: -30px;
+}
+.form-noidung1{
+	margin-left: 100px;
+}
+.form-tongquan{
+	max-width: 100%;
+}
+.form-tonguan{
+	margin-right: 100ex;
+}
+.content-photo{
+	margin-top: 100px;
+}
+.tab-content .content_anh img{
+    height: 150px;
+    width: 200px;  
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+} 
+.description-image{
+    background-color: #fff;
+    border-style: groove;
+    height: 500px;
+    border: 1px dotted black;
+    overflow: auto;
+}
+/* .description-image .form-inline{
+	margin-top: 50px;
+} */
+
+.hover_1 {
+	overflow: hidden;
+	position: relative;
+	padding-bottom: 60%;
+  }
+  .hover-overlay_1 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 90;
+	transition: all 0.4s;
+  }
+  .hover_1 img {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: all 0.3s;
+  }
+  .hover-noidung_1 {
+	position: relative;
+	z-index: 99;
+  }
+  .hover-1_1 {
+	color: #fff;
+  }
+  .hover-1_1 img {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: -5%;
+	transition: all 0.3s;
+  }
+  .hover-1-noidung_1 {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 99;
+	transition: all 0.4s;
+	margin-bottom: -20px;
+  }
+  .hover-1_1 .hover-overlay_1 {
+	background: rgba(0, 0, 0, 0.5);
+  }
+  .hover-1-trichdan_1 {
+	transform: translateY(0.5rem);
+	transition: all 0.4s;
+	opacity: 0;
+	margin-bottom: 40px;
+	font-size: 12px;
+	margin-left: 200px;
+  }
+  .hover-1_1 .hover-1-noidung_1 {
+	bottom: 2rem;
+  }
+  .hover-1_1 .hover-1-trichdan_1 {
+	opacity: 1;
+	transform: none;	
+  }
+  .hover-1_1 img {
+	left: 0;
+  }
+  .hover-1:hover_1 .hover-overlay_1 {
+	opacity: 0;
+  }
+  .div1_1{
+	width:15px;
+	height:15px;
+	border-radius:50%;
+	background-color: #fff;
+	}
+.bk_1{
+	margin-right: 80px;	
+	margin-bottom: 22px;
+	font-size: 20px;
+	color: rgb(255, 166, 0);
+	}
+.conten_1{
+	margin-top: 12px;
+}

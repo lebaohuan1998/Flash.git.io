@@ -1,266 +1,139 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<div class="container-fluid col-9 form-block">
-	<div class="row justify-content-center half">
-		<div class="col-md-12">
-			<div class=" mx-auto">
-				<h4 style="text-align: center;">Mô tả thợ ảnh</h4>
-				<div class="form-block2 mx-auto" style="border: 0.5px solid;">
-					<div class="heno">
-						<!-- <h1>text formatting</h1> -->
-						<textarea class="textarea">Tôi thích chụp ảnh vì một bức ảnh có thể lưu giữ khoảng thời gian và thời khắc những sự việc xảy ra trong thời gian đó. Tôi yêu những gì mà niền vui nhiếp ảnh mang lại cho tôi và tôi muốn chia sẻ với các bạn lý do tại sao tôi cho rằng nhiếp ảnh là một sở thích tuyệt vời giúp tôi hòa nhập vào cuộc sống này, không những thế mà đam mê đó còn giúp tôi đủ dũng khí để lập nên một trang blog nhiếp ảnh của riêng mình. Nhiếp ảnh là một sở thích độc đáo ở chỗ bạn có thể bắt đầu học ở giai đoạn nào, và tiếp tục học cho đến khi bạn bạn còn muốn học nữa. Nhiều người cảm thấy rằng nhiếp ảnh không phải là một nghệ thuật và cũng không đáng được chú ý như những bức tranhd dược vẽ tỉ mỉ vì chụp ảnh tương đối dễ để có được thành một nhiếp ảnh gia. Tôi không hoàn toàn đồng ý với điều này</textarea>
-						<button type="button" class=" btn btn-info sa1">Sửa</button>
-					</div>
 
-					<img src="images/anhchandung.PNG" class="image1dv">
-					<button type="button" class=" btn btn-info sa">Sửa</button>
-					<img src="images/anhchandung.PNG" class="image1dv">
-					<button type="button" class="btn btn-info sa">Sửa</button>
-					<br> <img src="images/anhchandung.PNG" class="image1dv">
-					<button type="button" class="btn btn-info sa">Sửa</button>
-					<img src="images/anhchandung.PNG" class="image1dv">
-					<button type="button" class="btn btn-info sa">Sửa</button>
+<div class="container-fluid col-9 form-block" style="padding-top: 0px;">
+	<!-- <div class=" justify-content-center half"> -->
+	<div class="col-md-12">
+		<div class="form-block3 mx-auto border">
+			<div class="input-group"
+				style="border-bottom: 1px solid rgba(0, 0, 0, 0.15); height: 130px; margin-bottom: 20px;">
+				<div class=" ">
+					<div style="border-bottom: 1px solid rgba(0, 0, 0, 0.15);">
+						<h2 class="container mx-auto">Lọc gói theo thể loại</h2>
+					</div>
+					<br>
+					<form id="tao_sua-form" class="form "
+						action="${pageContext.request.contextPath}/GoiDichVuLichBan?flag=3&command=SEARCH"
+						method="post">
+						<div class="input-group">
+							<div class="col-7 ">
+								<select class="form-control" name="theloaichup"
+									id="selectioncategory">
+									<option ${theloai=='0'? 'selected="selected"' : ''} value="0">Tất
+											cả thể loại</option>
+									<c:forEach items="${listC}" var="list">
+										<option  ${list.categoryId==theloai? 'selected="selected"' : ''} value="${list.categoryId }">${list.categoryName}</option>
+									</c:forEach>
+								</select>
+							</div>
+							<div class="">
+								<button class="btn btn-outline-dark ">
+									Tìm Kiếm <i class="fa fa-search"></i>
+								</button>
+							</div>
+
+						</div>
+					</form>
+					<br> <br>
+
 				</div>
-				<button class="btn btn-primary btndv-lb">Xem trước</button>
+
+				<!-- lich ban -->
+				<div class="" style="margin-left: 50px;">
+					<div class="" style="border-bottom: 1px solid rgba(0, 0, 0, 0.15);">
+						<h2 class="container mx-auto">Thêm Lịch Làm Việc</h2>
+					</div>
+					<br>
+					<div class="input-group">
+						<div class="mr-3" style="margin-left: 15px;">
+							<input type="date" class=" form-control" id="scheduleDate"
+								name="scheduleDate" style="height: calc(2.25rem + 2px);" max="2100-12-31" min="1900-12-31">
+						</div>
+						<div class="">
+							<button id="btnaddlichban" class="btn btn-info collapse">Thêm
+								lịch làm việc</button>
+						</div>
+					</div>
+				</div>
+
+
 			</div>
+			<!-- load albums -->
 
-			<div class="form-block1 mx-auto">
-				<div class="form-inline">
-					<div class="col-sm-7">
-						<h1 class="goidichvu2 col-sm-12">
-							<b>Lọc gói theo thể loại</b>
-						</h1>
-						<div class="col-md-12 lb">
-							<select class="form-control loctheloai ">
-								<option>Gói ảnh chân dung</option>
-								<option>Gói ảnh cưới</option>
-								<option>Gói ảnh sự kiện</option>
-							</select>
-						</div>
-						<h4 class="goidichvu">
-							<b>Gói dịch vụ có sẵn</b>
-						</h4>
-						<div class="form-inline">
-							<input type="checkbox" class="cb">
-							<div class="col-md-4 ">
-								<div class="hover hover-1 bgimg1  ">
-									<img src="pic/3.jpg" alt="">
-									<div class="hover-overlay"></div>
-									<div class="hover-1-noidung  ">
-										<div class="form-inline col-16">
-											<span class="fa fa-bookmark bookmark px-3 bk"></span>
-											<p class="hover-1-trichdan font-weight-light ">7.000.000
-												đ</p>
-										</div>
+			<%@ include file="loadalbumsphoto.jsp"%>
 
-										<div class="font-weight-light py-0">
-											<div class="form-inline col-sm-10">
+			<!-- end -->
 
-												<div class="div1"></div>
-												<!-- <div class="form-group "> -->
-												<h6 style="font-size: 5px;" class="conten px-1">
-													Ảnh viện áo cưới Tiến Dũng <br> <span
-														class="font-weight-light "><a href="#"
-														style="color: white; font-size: 5px;">Tỉnh Hà Nội</a> </span>
-												</h6>
-												<!-- </div> -->
-												<input type="button" class=" px-3" Value="Book ảnh" /> <span
-													class="fa fa-star star "></span> <span
-													class="fa fa-star star "></span> <span
-													class="fa fa-star star "></span> <span
-													class="fa fa-star star "></span> <span
-													class="fa fa-star star "></span>
-
-											</div>
-
-										</div>
-									</div>
-								</div>
+			<!-- </div> -->
+			<nav aria-label="Page navigation example">
+				<ul class="pagination">
+					<c:forEach items="${page}" var="list">
+						<li class="page-item"><a
+							class="page-link <c:if test="${param.page ==list}">text-white bg-dark</c:if> <c:if test="${param.page ==null&&list==1}">text-white bg-dark</c:if>"
+							href="${pageContext.request.contextPath}/GoiDichVuLichBan?flag=3&page=${list}<c:if test="${theloai !=null}">&categoryId=${theloai}</c:if>">${list}</a></li>
+					</c:forEach>
+				</ul>
+			</nav>
+			<br>
+			<div>
+				<a
+					href="${pageContext.request.contextPath}/TaoSuaGoiDichVu?flag=2&command=CREATE"
+					class="btn btn-info ">Tạo</a>
+				<button id="btnUpdate" type="button" class="btn btn-info collapse">Sửa</button>
+				<button type="button" class="btn btn-info collapse " id="btndele"
+					data-toggle="modal" data-target="#deleteModal1">Xóa</button>
+				<div class="modal fade" id="deleteModal1" tabindex="-1"
+					role="dialog" aria-labelledby="exampleModalLabel"
+					aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Xóa Album</h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
 							</div>
-							<!-- <input type="text" class="form-control " placeholder="Chụp ảnh chân dung"> -->
-							<!-- <input type="text" class="form-control col-sm-2 dat"><br> -->
-							<h1 class="goidichvu1 col-sm-12">
-								<b>Lịch bận</b>
-							</h1>
-							<div class="col-md-12 lb2">
-								<input type="text" class=" col-sm-6 " style="font-size: 10px;">
-								<button type="button" class=" col-sm-4 btn-info"
-									style="font-size: 10px;">Xóa lịch bận</button>
+							<div class="modal-body">Bạn muốn xóa Album này?</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Đóng</button>
+								<button id="btnDelete" type="button" class="btn btn-primary">Xóa</button>
 							</div>
-							<div class="col-md-12 lb2">
-								<input type="text" class=" col-sm-6 " style="font-size: 10px;">
-								<button type="button" class=" col-sm-4 btn-info"
-									style="font-size: 10px;">Xóa lịch bận</button>
-							</div>
-							<div class="col-md-12 lb2">
-								<input type="text" class=" col-sm-6 " style="font-size: 10px;">
-								<button type="button" class=" col-sm-4 btn-info"
-									style="font-size: 10px;">Xóa lịch bận</button>
-							</div>
-							<div class="col-md-12 lb2">
-								<input type="text" class=" col-sm-6 " style="font-size: 10px;">
-								<button type="button" class=" col-sm-4 btn-info"
-									style="font-size: 10px;">Xóa lịch bận</button>
-							</div>
-						</div>
-
-						<button type="button" class="  btn-info sa2">Xem thử</button>
-						<input type="text" class="sa7" placeholder="gói chân dung"
-							disabled>
-
-
-						<!-- </div> -->
-						<div class="form-inline">
-							<input type="checkbox" class="cb">
-							<div class="col-md-4 ">
-								<div class="hover hover-1 bgimg1  ">
-									<img src="pic/3.jpg" alt="">
-									<div class="hover-overlay"></div>
-									<div class="hover-1-noidung  ">
-										<div class="form-inline col-16">
-											<span class="fa fa-bookmark bookmark px-3 bk"></span>
-											<p class="hover-1-trichdan font-weight-light ">7.000.000
-												đ</p>
-										</div>
-
-										<div class="font-weight-light py-0">
-											<div class="form-inline col-sm-10">
-
-												<div class="div1"></div>
-												<!-- <div class="form-group "> -->
-												<h6 style="font-size: 5px;" class="conten px-1">
-													Ảnh viện áo cưới Tiến Dũng<br> <span
-														class="font-weight-light "><a href="#"
-														style="color: white; font-size: 5px;">Tỉnh Hà Nội</a> </span>
-												</h6>
-												<!-- </div> -->
-												<input type="button" class=" px-3" Value="Book ảnh" /> <span
-													class="fa fa-star star "></span> <span
-													class="fa fa-star star "></span> <span
-													class="fa fa-star star "></span> <span
-													class="fa fa-star star "></span> <span
-													class="fa fa-star star "></span>
-
-											</div>
-
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- <input type="text" class="form-control " placeholder="Chụp ảnh chân dung"> -->
-							<!-- <input type="text" class="form-control col-sm-2 dat"><br> -->
-							<h1 class="goidichvu1 col-sm-12">
-								<b>Lịch bận</b>
-							</h1>
-							<div class="col-md-12 lb2">
-								<input type="text" class=" col-sm-6 " style="font-size: 10px;">
-								<button type="button" class=" col-sm-4 btn-info"
-									style="font-size: 10px;">Xóa lịch bận</button>
-							</div>
-							<div class="col-md-12 lb2">
-								<input type="text" class=" col-sm-6 " style="font-size: 10px;">
-								<button type="button" class=" col-sm-4 btn-info"
-									style="font-size: 10px;">Xóa lịch bận</button>
-							</div>
-							<div class="col-md-12 lb2">
-								<input type="text" class=" col-sm-6 " style="font-size: 10px;">
-								<button type="button" class=" col-sm-4 btn-info"
-									style="font-size: 10px;">Xóa lịch bận</button>
-							</div>
-							<div class="col-md-12 lb2">
-								<input type="text" class=" col-sm-6 " style="font-size: 10px;">
-								<button type="button" class=" col-sm-4 btn-info"
-									style="font-size: 10px;">Xóa lịch bận</button>
-							</div>
-						</div>
-						<button type="button" class="  btn-info sa2">Xem thử</button>
-						<input type="text" class="sa7" placeholder="gói ảnh cưới" disabled>
-						<div class="form-inline">
-							<input type="checkbox" class="cb">
-							<div class="col-md-4 ">
-								<div class="hover hover-1 bgimg1  ">
-									<img src="pic/3.jpg" alt="">
-									<div class="hover-overlay"></div>
-									<div class="hover-1-noidung  ">
-										<div class="form-inline col-16">
-											<span class="fa fa-bookmark bookmark px-3 bk"></span>
-											<p class="hover-1-trichdan font-weight-light ">7.000.000
-												đ</p>
-										</div>
-
-										<div class="font-weight-light py-0">
-											<div class="form-inline col-sm-10">
-
-												<div class="div1"></div>
-												<!-- <div class="form-group "> -->
-												<h6 style="font-size: 5px;" class="conten px-1">
-													Ảnh viện áo cưới Tiến Dũng<br> <span
-														class="font-weight-light "><a href="#"
-														style="color: white; font-size: 5px;">Tỉnh Hà Nội </a></span>
-												</h6>
-												<!-- </div> -->
-												<input type="button" class=" px-3" Value="Book ảnh" /> <span
-													class="fa fa-star star "></span> <span
-													class="fa fa-star star "></span> <span
-													class="fa fa-star star "></span> <span
-													class="fa fa-star star "></span> <span
-													class="fa fa-star star "></span>
-
-											</div>
-
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- <input type="text" class="form-control " placeholder="Chụp ảnh chân dung"> -->
-							<!-- <input type="text" class="form-control col-sm-2 dat"><br> -->
-							<h1 class="goidichvu1 col-sm-12">
-								<b>Lịch bận</b>
-							</h1>
-							<div class="col-md-12 lb2">
-								<input type="text" class=" col-sm-6 " style="font-size: 10px;">
-								<button type="button" class=" col-sm-4 btn-info"
-									style="font-size: 10px;">Xóa lịch bận</button>
-							</div>
-							<div class="col-md-12 lb2">
-								<input type="text" class=" col-sm-6 " style="font-size: 10px;">
-								<button type="button" class=" col-sm-4 btn-info"
-									style="font-size: 10px;">Xóa lịch bận</button>
-							</div>
-							<div class="col-md-12 lb2">
-								<input type="text" class=" col-sm-6 " style="font-size: 10px;">
-								<button type="button" class=" col-sm-4 btn-info"
-									style="font-size: 10px;">Xóa lịch bận</button>
-							</div>
-							<div class="col-md-12 lb2">
-								<input type="text" class=" col-sm-6 " style="font-size: 10px;">
-								<button type="button" class=" col-sm-4 btn-info"
-									style="font-size: 10px;">Xóa lịch bận</button>
-							</div>
-						</div>
-						<button type="button" class="  btn-info sa2">Xem thử</button>
-						<input type="text" class="sa7" placeholder="gói chân dung"
-							disabled><br>
-						<button type="button" class="  sa5">Tạo</button>
-						<button type="button" class="  sa4 ">Sửa</button>
-						<button type="button" class="  sa4 ">Xóa</button>
-						<button type="button" class="  sa4 ">Ẩn/hiện</button>
-						<button type="button" class="  sa4">Xóa hết lịch bận</button>
-					</div>
-					<h1 class="goidichvu2 col-sm-12">
-						<b>Thêm lịch bận</b>
-					</h1>
-					<div class="col-md-12 lb1">
-						<input type="date" class="form-control  lichban">
-						<div class="tlb">
-							<button class="btn-info sa6">Thêm lịch bận</button>
 						</div>
 					</div>
+				</div>
+				<button id="btnhideshow" class="btn btn-info collapse ">Ẩn/hiện</button>
 
+				<button type="button" id="btndeledate"
+					class="btn btn-info collapse " data-toggle="modal"
+					data-target="#deleteModal2">Xóa hết lịch bận</button>
 
-
+				<div class="modal fade" id="deleteModal2" tabindex="-1"
+					role="dialog" aria-labelledby="exampleModalLabel"
+					aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Xóa Lịch Bận</h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">Bạn muốn xóa tất cả lịch bận</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Đóng</button>
+								<button id="btnDeleteAllDate" type="button"
+									class="btn btn-primary">Xóa</button>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+
 	</div>
+	<!-- </div> -->
 </div>
